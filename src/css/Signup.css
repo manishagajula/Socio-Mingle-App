@@ -1,0 +1,55 @@
+.signup_page {
+  margin: 20px auto;
+  padding: 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+/* 
+.signup_page form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+} */
+
+.title {
+  margin-bottom: 0px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 15px;
+}
+
+.signup_btn {
+  margin: auto;
+  padding: 1px auto;
+  border-radius: 8px;
+  display: center;
+  width: 22rem;
+  color: white;
+  font-weight: bold;
+  background-color: #00acee;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  width: 20rem;
+  /* border-color: #00acee; */
+}
+
+input:focus {
+  border: 3px solid #00acee;
+}
+
+.signup_input {
+  text-align: left;
+  /* padding: 10px; */
+}
+
+::placeholder {
+  color: #00acee;
+}

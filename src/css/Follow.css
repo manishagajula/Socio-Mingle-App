@@ -1,0 +1,20 @@
+.followContainer {
+  border: 1px solid #ccc;
+}
+
+.followUserContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+  gap: 2rem;
+}
+
+.name,
+.username {
+  margin: 0.7rem;
+}
+
+.followBtn {
+  align-self: flex-end;
+}

@@ -1,0 +1,39 @@
+.login_btn {
+  margin: auto;
+  padding: 1px auto;
+  border-radius: 10px;
+  display: center;
+  width: 22rem;
+  color: white;
+  font-weight: bold;
+  background-color: #00acee;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  width: 20rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 15px;
+}
+
+.login_page {
+  margin: 20px auto;
+  padding: 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  margin-bottom: 0px;
+}
+
+::placeholder {
+  color: #00acee;
+}
