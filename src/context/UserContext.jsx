@@ -81,7 +81,7 @@ export function UserProvider({ children }) {
         // return response.data.users;
       }
     } catch (e) {
-      console.error(e);
+      console?.error(e);
     }
   };
 

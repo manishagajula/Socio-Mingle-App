@@ -1,4 +1,5 @@
-import React, { useContext, useReducer } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
@@ -13,12 +14,12 @@ export const PostDetail = () => {
   } = useContext(PostContext);
   const { GET_SINGLE_POST } = postConstants;
   //   console.log(id);
-  const getPostDetail = async (id) => {
+  const getSinglePostDetail = async (id) => {
     try {
       //   console.log(id);
       const response = await axios.get(`/api/posts/${id}`);
       if (response.status === 200) {
-        setPosts({ type: GET_SINGLE_POST, payload: response.data.post });
+        setPosts({ type: GET_SINGLE_POST, payload: response.data.posts });
       }
       //   console.log(response);
     } catch (error) {
@@ -27,7 +28,7 @@ export const PostDetail = () => {
   };
   console.log(singlePost);
   useEffect(() => {
-    getPostDetail(id);
+    getSinglePostDetail(id);
   }, [id]);
   return <div>ahsdksdksa</div>;
 };

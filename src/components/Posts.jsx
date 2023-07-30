@@ -1,8 +1,11 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PostContext } from "../context/PostContext";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { Like } from "./LikeComponent";
+import { EditPost } from "./EditPost";
+import "../css/editPost.css";
 
 export const Posts = () => {
   const { posts } = useContext(PostContext);
@@ -45,7 +48,7 @@ export const Posts = () => {
           <div
             key={id}
             className="postCardWrapper"
-            onClick={() => {
+            onClick={(e) => {
               handlePostDetail(_id);
             }}
           >
@@ -62,18 +65,27 @@ export const Posts = () => {
               {/* <p>{updatedAt}</p> */}
             </div>
             <div>
-              <button>Like{likes.likeCount}</button>
+              {/* <button>Like{likes.likeCount}</button> */}
+              <Like
+                LikeCount={likes.likeCount}
+                likedBy={likes.likedBy}
+                postId={_id}
+              />
               <button
-                onClick={() =>
+                onClick={(e) => {
                   isPostsBookmarked(_id)
                     ? removePostBookmark(_id)
-                    : addBookmark(_id)
-                }
+                    : addBookmark(_id);
+                  e.stopPropagation();
+                }}
               >
                 {isPostsBookmarked(_id)
                   ? "remove from bookmark"
                   : "add to bookmark"}
               </button>
+            </div>
+            <div className="dotsIcon">
+              <EditPost content={content} />
             </div>
           </div>
         )

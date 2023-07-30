@@ -1,4 +1,10 @@
-import { createContext, useEffect, useContext, useReducer } from "react";
+import {
+  createContext,
+  useEffect,
+  useContext,
+  useReducer,
+  useState,
+} from "react";
 
 import axios from "axios";
 import { AuthContext } from "./AuthContext";
@@ -9,6 +15,7 @@ export const PostContext = createContext();
 export function PostProvider({ children }) {
   // const [data, setData] = useState([]);
   const [posts, setPosts] = useReducer(postsReducer, initialPosts);
+  const [currentUserPosts, setCurrentUserPosts] = useState([]);
   const { token, currentUser } = useContext(AuthContext);
 
   // console.log({ response });
@@ -25,32 +32,47 @@ export function PostProvider({ children }) {
 
   const { GET_ALL_POSTS } = postConstants;
 
-  const getDetailOfPost = async (username) => {
+  // const getPostsByUsernameOrLoggedInUser = async (username) => {
+  //   try {
+  //     const response = await axios.get(`/api/posts/user/${username}`);
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  // console.log(getPostsByUsernameOrLoggedInUser);
+  // useEffect(() => {
+  //   getPostsByUsernameOrLoggedInUser();
+  // }, []);
+  // // console.log(getPostLikes());
+
+  const getPostsByUsernameOrLoggedInUser = async (username) => {
     try {
       const response = await axios.get(`/api/posts/user/${username}`);
-      console.log(response);
+      console.log({ response });
+      setCurrentUserPosts(response.data.posts);
     } catch (e) {
       console.error(e);
     }
   };
-  console.log(getDetailOfPost(currentUser?.username));
+  // console.log(getPostsByUsernameOrLoggedInUser(currentUser?.username));
 
-  const getPosts = async (postID) => {
-    try {
-      const response = await axios.get(`/api/posts/${postID}`);
-      if (response.status === 200) {
-        setPosts({ type: GET_ALL_POSTS, payload: response.data.post });
-        console.log(response);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getSinglePosts = async (postID) => {
+  //   try {
+  //     const response = await axios.get(`/api/posts/${postID}`);
+  //     if (response.status === 200) {
+  //       setPosts({ type: GET_SINGLE_POSTS, payload: response.data.post });
+  //       console.log(response);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getPosts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   getSinglePosts();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     (async () => {
@@ -72,7 +94,14 @@ export function PostProvider({ children }) {
   }, [token]);
 
   return (
-    <PostContext.Provider value={{ posts, setPosts }}>
+    <PostContext.Provider
+      value={{
+        posts,
+        setPosts,
+        getPostsByUsernameOrLoggedInUser,
+        currentUserPosts,
+      }}
+    >
       {children}
     </PostContext.Provider>
   );
