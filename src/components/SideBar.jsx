@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import "../App.css";
 import { useContext } from "react";
@@ -12,6 +12,7 @@ export const SideBar = () => {
   return (
     <div className="sideBar">
       <nav>
+        <Link to="/"> Twitter 2.0 </Link>
         <Link to="/">
           <strong className="link"> Home </strong>
         </Link>

@@ -85,7 +85,7 @@ export const Posts = () => {
               </button>
             </div>
             <div className="dotsIcon">
-              <EditPost content={content} />
+              <EditPost content={content} postId={_id} />
             </div>
           </div>
         )
