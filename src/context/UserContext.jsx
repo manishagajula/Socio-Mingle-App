@@ -69,19 +69,19 @@ export function UserProvider({ children }) {
     // console.log({ response });
   };
 
-  const getProfile = async (_id) => {
+  const getProfile = async (username) => {
     try {
-      const response = await axios.get(`/api/users/${_id}`);
+      const response = await axios.get(`/api/users/${username}`);
       if (response.status === 200) {
-        // console.log(response);
+        console.log(response);
         setUsers({
           type: SELECTED_USER_PROFILE,
-          payload: response?.data?.user,
+          payload: response.data.user,
         });
         // return response.data.users;
       }
     } catch (e) {
-      console?.error(e);
+      console.error(e);
     }
   };
 

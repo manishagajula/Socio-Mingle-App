@@ -1,27 +1,30 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+// import { AuthContext } from "../context/AuthContext";
 import { PostContext } from "../context/PostContext";
 import { Like } from "./LikeComponent";
 
 export const Profile = () => {
-  const { id } = useParams();
+  const { username } = useParams();
   const {
     users: { selectedUser },
     getProfile,
   } = useContext(UserContext);
   //   const [data, setData] = useState({});
-  const { currentUser } = useContext(AuthContext);
-  const { getPostsByUsernameOrLoggedInUser, currentUserPosts } =
-    useContext(PostContext);
+  // const { currentUser } = useContext(AuthContext);
+  const {
+    posts: { allPosts },
+  } = useContext(PostContext);
 
+  console.log(selectedUser);
+  const displayPosts = allPosts?.filter(
+    (posts) => posts.username === selectedUser.username
+  );
   useEffect(() => {
-    getProfile(id);
-    getPostsByUsernameOrLoggedInUser(currentUser?.username);
-  }, []);
-
-  console.log({ selectedUser, currentUserPosts });
+    getProfile(username);
+    // getPostsByUsernameOrLoggedInUser(selectedUser?.username);
+  }, [username]);
 
   return (
     <div>
@@ -32,8 +35,27 @@ export const Profile = () => {
         <p>{selectedUser.followers}</p>
         <p>{selectedUser.following}</p>
         <p>{selectedUser.createdAt}</p>
+        {/* <p>{currentUserPosts.content}</p> */}
       </div>
-      {Object.keys(selectedUser).length === 0 ||
+      <div>
+        {displayPosts.map(
+          ({ content, createdAt, id, likes, updatedAt, username }) => (
+            <div key={id}>
+              <p>{username}</p>
+              <p>{updatedAt}</p>
+              <p>{createdAt}</p>
+              <p>
+                <p>{content}</p>
+                <p>{likes.likeCount}</p>
+                <Like LikeCount={likes.likeCount} postId={id} />
+                <p>{likes.likeBy}</p>
+                <p>{likes.dislikedBy}</p>
+              </p>
+            </div>
+          )
+        )}
+      </div>
+      {/* {Object.keys(selectedUser).length === 0 ||
         (selectedUser?.username === currentUserPosts[0]?.username && (
           <div>
             {currentUserPosts.map(
@@ -43,7 +65,7 @@ export const Profile = () => {
                   <p>{updatedAt}</p>
                   <p>{createdAt}</p>
                   <p>
-                    {/* <p>{likes.likeCount}</p> */}
+                    <p>{likes.likeCount}</p>
                     <Like LikeCount={likes.likeCount} postId={id} />
                     <p>{likes.likeBy}</p>
                     <p>{likes.dislikedBy}</p>
@@ -53,7 +75,7 @@ export const Profile = () => {
               )
             )}
           </div>
-        ))}
+        ))} */}
     </div>
   );
 };

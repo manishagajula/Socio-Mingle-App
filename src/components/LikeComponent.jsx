@@ -14,9 +14,9 @@ export const Like = ({ LikeCount, likedBy, postId }) => {
   const { setPosts } = useContext(PostContext);
   const { LIKE_POSTS } = postConstants;
 
-  console.log({ allPosts });
+  // console.log({ allPosts });
 
-  const isAlreadyLiked = likedBy.find(({ _id }) => _id === currentUser?._id);
+  const isAlreadyLiked = likedBy?.find(({ _id }) => _id === currentUser?._id);
 
   //   console.log({ postId });
 

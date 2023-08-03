@@ -13,28 +13,31 @@ export const SideBar = () => {
     <div className="sideBar">
       <nav>
         <Link to="/"> Twitter 2.0 </Link>
-        <Link to="/">
+        <NavLink to="/">
           <strong className="link"> Home </strong>
-        </Link>
-        <Link to="/explore">
+        </NavLink>
+        <NavLink to="/explore">
           {" "}
           <strong className="link">Explore </strong>
-        </Link>
-        <Link to="/profile" onClick={() => getProfile(currentUser._id)}>
+        </NavLink>
+        <NavLink
+          to={`/profile/${currentUser?.username}`}
+          onClick={() => getProfile(currentUser?.username)}
+        >
           {" "}
           <strong className="link">Profile </strong>
-        </Link>
-        <Link to="/bookmark">
+        </NavLink>
+        <NavLink to="/bookmark">
           <strong className="link">Bookmarks </strong>
-        </Link>
+        </NavLink>
         <button>
           <strong className="post"> Post </strong>
         </button>
-        <Link to="/login">
+        <NavLink to="/login">
           <button onClick={handleLogout}>
             <strong className="post"> Logout </strong>
           </button>
-        </Link>
+        </NavLink>
       </nav>
     </div>
   );

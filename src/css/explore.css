@@ -16,3 +16,9 @@
   border: 1px solid #ccc;
   width: 100%;
 }
+
+.flex {
+  width: 50;
+  height: 50;
+  overflow: scroll;
+}

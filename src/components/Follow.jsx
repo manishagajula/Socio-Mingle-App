@@ -26,8 +26,8 @@ export const Follow = () => {
   };
 
   const navigate = useNavigate();
-  const handleSelectedUser = (_id) => {
-    navigate(`/profile/${_id}`);
+  const handleSelectedUser = (username) => {
+    navigate(`/profile/${username}`);
   };
 
   // console.log(updatedCurrentUser, allUsers, currentUser);
@@ -70,7 +70,7 @@ export const Follow = () => {
             <ul key={_id} className="followUserContainer">
               <div
                 onClick={() => {
-                  handleSelectedUser(_id);
+                  handleSelectedUser(username);
                 }}
               >
                 <p className="name">

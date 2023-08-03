@@ -22,7 +22,7 @@ export function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/profile/:id" element={<ProfilePage />} />
+        <Route path="/profile/:username" element={<ProfilePage />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/post/:id" element={<PostDetail />} />{" "}
       </Routes>

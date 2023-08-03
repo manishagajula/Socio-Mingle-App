@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useEffect,
-  useContext,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useEffect, useContext, useReducer } from "react";
 
 import axios from "axios";
 import { AuthContext } from "./AuthContext";
@@ -15,8 +9,8 @@ export const PostContext = createContext();
 export function PostProvider({ children }) {
   // const [data, setData] = useState([]);
   const [posts, setPosts] = useReducer(postsReducer, initialPosts);
-  const [currentUserPosts, setCurrentUserPosts] = useState([]);
-  const { token, currentUser } = useContext(AuthContext);
+  // const [currentUserPosts, setCurrentUserPosts] = useState([]);
+  const { token } = useContext(AuthContext);
 
   // console.log({ response });
 
@@ -46,15 +40,15 @@ export function PostProvider({ children }) {
   // }, []);
   // // console.log(getPostLikes());
 
-  const getPostsByUsernameOrLoggedInUser = async (username) => {
-    try {
-      const response = await axios.get(`/api/posts/user/${username}`);
-      console.log({ response });
-      setCurrentUserPosts(response.data.posts);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  // const getPostsByUsernameOrLoggedInUser = async (username) => {
+  //   try {
+  //     const response = await axios.get(`/api/posts/user/${username}`);
+  //     console.log({ response });
+  //     setPosts({ type: SET_SELECTED_USER, payload: response.data.posts });
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
   // console.log(getPostsByUsernameOrLoggedInUser(currentUser?.username));
 
   // const getSinglePosts = async (postID) => {
@@ -79,9 +73,9 @@ export function PostProvider({ children }) {
       try {
         const response = await axios.get("/api/posts");
         if (response.status === 200) {
-          // console.log({ data: response.data.posts });
+          console.log({ data: response.data.posts });
           setPosts({ type: GET_ALL_POSTS, payload: response.data.posts });
-          console.log(response);
+          // console.log(response);
           // console.log({ data: response.data.posts });
           // setPost({ type: GET_BOOKMARKS, payload: response.data.posts });
           // console.log({ response });
@@ -98,8 +92,8 @@ export function PostProvider({ children }) {
       value={{
         posts,
         setPosts,
-        getPostsByUsernameOrLoggedInUser,
-        currentUserPosts,
+        // getPostsByUsernameOrLoggedInUser,
+        // currentUserPosts,
       }}
     >
       {children}

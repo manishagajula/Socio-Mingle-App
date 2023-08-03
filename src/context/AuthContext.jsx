@@ -11,6 +11,32 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
   const [token, setToken] = useState(localStorageToken?.token);
 
+  const LoginHandler = async (email, password) => {
+    try {
+      const response = await axios.post("/api/auth/login", {
+        username: email,
+        password,
+      });
+
+      const {
+        status,
+        data: { foundUser, encodedToken },
+      } = response;
+      console.log({ encodedToken });
+      if (status === 200) {
+        setCurrentUser(foundUser);
+        setToken(encodedToken);
+        localStorage.setItem(
+          "logindetails",
+          JSON.stringify({ token: encodedToken, user: foundUser })
+        );
+      }
+      console.log(response);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const SignupHandler = async (
     email,
     password,
@@ -52,7 +78,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ SignupHandler, token, currentUser, handleLogout }}
+      value={{ SignupHandler, LoginHandler, token, currentUser, handleLogout }}
     >
       {children}
     </AuthContext.Provider>

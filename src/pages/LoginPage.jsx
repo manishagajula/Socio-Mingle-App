@@ -1,28 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/Login.css";
+import { AuthContext } from "../context/AuthContext";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const [AllEntry, setAllEntry] = useState([]);
+  const { LoginHandler } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  const submitForm = async (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
-    const newEntry = { email, password };
 
-    setAllEntry([...AllEntry, newEntry]);
+    LoginHandler(email, password);
 
-    const response = await axios.post("/api/auth/login", {
-      username: email,
-      password,
-    });
-
-    console.log({ response });
+    navigate("/explore");
   };
 
   return (
