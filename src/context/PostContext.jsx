@@ -73,7 +73,7 @@ export function PostProvider({ children }) {
       try {
         const response = await axios.get("/api/posts");
         if (response.status === 200) {
-          console.log({ data: response.data.posts });
+          // console.log({ data: response.data.posts });
           setPosts({ type: GET_ALL_POSTS, payload: response.data.posts });
           // console.log(response);
           // console.log({ data: response.data.posts });

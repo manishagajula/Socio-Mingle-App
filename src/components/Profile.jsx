@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 // import { AuthContext } from "../context/AuthContext";
 import { PostContext } from "../context/PostContext";
 import { Like } from "./LikeComponent";
+import { BookmarkComponent } from "./BookmarkComponent";
 
 export const Profile = () => {
   const { username } = useParams();
@@ -13,11 +14,13 @@ export const Profile = () => {
   } = useContext(UserContext);
   //   const [data, setData] = useState({});
   // const { currentUser } = useContext(AuthContext);
+
   const {
     posts: { allPosts },
   } = useContext(PostContext);
 
   console.log(selectedUser);
+
   const displayPosts = allPosts?.filter(
     (posts) => posts.username === selectedUser.username
   );
@@ -50,6 +53,7 @@ export const Profile = () => {
                 <Like LikeCount={likes.likeCount} postId={id} />
                 <p>{likes.likeBy}</p>
                 <p>{likes.dislikedBy}</p>
+                <BookmarkComponent />
               </p>
             </div>
           )
