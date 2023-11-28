@@ -1,0 +1,15 @@
+.dummyImage {
+  /* position: absolute; */
+  height: 140px;
+  width: 140px;
+  border-radius: 80px;
+  /* bottom: 280px; */
+  /* left: 450px; */
+  /* margin-left: 180%; */
+}
+
+.editProfileImage {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}

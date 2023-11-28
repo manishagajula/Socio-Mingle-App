@@ -4,6 +4,8 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { PostContext } from "../context/PostContext";
 import { postConstants } from "../constants/post_constants";
+import { FaRegHeart } from "react-icons/fa";
+import "../css/like.css";
 
 export const Like = ({ LikeCount, likedBy, postId }) => {
   const {
@@ -27,18 +29,6 @@ export const Like = ({ LikeCount, likedBy, postId }) => {
   // };
 
   const handleLikeCount = async (postId, token) => {
-    // try {
-    //   const response = await axios.post(
-    //     `api/posts/like/${postId}`,
-    //     {},
-    //     {
-    //       headers: { authorization: token },
-    //     }
-    //   );
-    //   console.log(response);
-    // } catch (e) {
-    //   console.error(e);
-    // }
     console.log({ postId, token });
     try {
       const response = await axios.post(
@@ -54,6 +44,7 @@ export const Like = ({ LikeCount, likedBy, postId }) => {
       if (response.status === 201) {
         setPosts({ type: LIKE_POSTS, payload: response.data.posts });
       }
+      console.log(response.data.posts);
     } catch (error) {
       console.error(error);
     }
@@ -81,8 +72,9 @@ export const Like = ({ LikeCount, likedBy, postId }) => {
   };
 
   return (
-    <div>
+    <div onClick={(e) => e.stopPropagation(e)}>
       <button
+        className="like"
         onClick={(e) => {
           isAlreadyLiked
             ? handleDisLikeCount(postId, token)
@@ -90,7 +82,7 @@ export const Like = ({ LikeCount, likedBy, postId }) => {
           e.stopPropagation();
         }}
       >
-        Like {LikeCount}
+        <FaRegHeart /> <span>{LikeCount}</span>
       </button>
     </div>
   );

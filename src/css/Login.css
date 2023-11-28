@@ -9,10 +9,10 @@
   background-color: #00acee;
 }
 
-input {
+/* input {
   padding: 0.5rem 1rem;
   width: 20rem;
-}
+} */
 
 form {
   display: flex;
@@ -34,6 +34,6 @@ form {
   margin-bottom: 0px;
 }
 
-::placeholder {
+/* ::placeholder {
   color: #00acee;
-}
+} */

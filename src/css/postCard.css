@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.likeBookmark {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* .outerDotsIcon {
+  position: relative;
+} */
+
+.dotsIcon {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+/* .outerDotsIcon {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.postCardWrapper {
+  /* width: 70%; */
+  /* margin-left: 270px; */
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  /* padding-bottom: 10px; */
+  border-radius: 10px;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
+}
+
+.icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+/* .postCardcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+} */
+
+/* .postData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+} */
+
+.postCardcontainerssss {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.iconimage {
+  margin-right: 5px;
+  object-fit: contain;
+  margin-bottom: 100px;
+  padding: 10px;
+}
+
+.postCont {
+  display: flex;
+  flex-direction: column;
+}
+
+.postData {
+  flex-wrap: wrap;
+}
+
+.firstNameEdit,
+.lastNameEdit {
+  font-weight: bold;
+}
+
+.usernameProfile {
+  margin: 0;
+  color: grey;
+}
+
+.nameEdit {
+  margin-bottom: 0px;
+}

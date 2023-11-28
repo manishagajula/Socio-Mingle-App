@@ -1,7 +1,13 @@
 import { postConstants } from "../constants/post_constants";
 
-const { GET_ALL_POSTS, GET_SINGLE_POST, LIKE_POSTS, EDIT_POST, DELETE_POST } =
-  postConstants;
+const {
+  GET_ALL_POSTS,
+  GET_SINGLE_POST,
+  LIKE_POSTS,
+  EDIT_POST,
+  DELETE_POST,
+  CREATE_POST,
+} = postConstants;
 
 export const postsReducer = (state, action) => {
   switch (action.type) {
@@ -14,6 +20,8 @@ export const postsReducer = (state, action) => {
     case EDIT_POST:
       return { ...state, allPosts: action.payload };
     case DELETE_POST:
+      return { ...state, allPosts: action.payload };
+    case CREATE_POST:
       return { ...state, allPosts: action.payload };
     default:
       return state;

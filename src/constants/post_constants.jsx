@@ -4,4 +4,5 @@ export const postConstants = {
   LIKE_POSTS: "LIKE_POSTS",
   EDIT_POST: "EDIT_POST",
   DELETE_POST: "DELETE_POST",
+  CREATE_POST: "CREATE_POST",
 };

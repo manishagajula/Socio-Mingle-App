@@ -17,7 +17,7 @@ export function UserProvider({ children }) {
   // const [users, setUsers] = useState([]);
   const [users, setUsers] = useReducer(usersReducer, initialUsers);
   const { token } = useContext(AuthContext);
-  //   console.log(users);
+  console.log(users);
 
   // const [post, setPost] = useReducer(postReducer, initialPost);
 
@@ -29,9 +29,11 @@ export function UserProvider({ children }) {
     GET_BOOKMARKS,
     BOOKMARK_POST,
     REMOVE_BOOKMARK,
+    EDIT_USER,
   } = userConstants;
 
   const handleFollow = async (_id) => {
+    console.log({ _id });
     const response = await axios.post(
       `/api/users/follow/${_id}`,
       {},
@@ -39,7 +41,7 @@ export function UserProvider({ children }) {
         headers: { authorization: token },
       }
     );
-
+    console.log(response);
     const {
       status,
       data: { user, followUser },
@@ -58,7 +60,7 @@ export function UserProvider({ children }) {
         headers: { authorization: token },
       }
     );
-
+    console.log(response);
     const {
       status,
       data: { user, followUser },
@@ -66,7 +68,7 @@ export function UserProvider({ children }) {
     if (status === 200) {
       setUsers({ type: UNFOLLOW_USER, payload: [user, followUser] });
     }
-    // console.log({ response });
+    console.log(response);
   };
 
   const getProfile = async (username) => {
@@ -79,6 +81,7 @@ export function UserProvider({ children }) {
           payload: response.data.user,
         });
         // return response.data.users;
+        console.log(response.data.users);
       }
     } catch (e) {
       console.error(e);
@@ -143,6 +146,43 @@ export function UserProvider({ children }) {
       if (response.status === 200) {
         setUsers({ type: GET_ALL_USERS, payload: response.data.users });
       }
+      console.log({ response });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const editUser = async (
+    editFirstNameDetails,
+    editLastNameDetails,
+    editBioDetails,
+    editWebsiteDetails,
+    backgroundCover,
+    profileImage
+  ) => {
+    try {
+      const response = await axios.post(
+        "/api/users/edit",
+        {
+          userData: {
+            firstName: editFirstNameDetails,
+            lastName: editLastNameDetails,
+            bio: editBioDetails,
+            website: editWebsiteDetails,
+            profileBackgroundCover: backgroundCover,
+            profileAvatar: profileImage,
+          },
+        },
+        { headers: { authorization: token } }
+      );
+      console.log({ response });
+      const {
+        status,
+        data: { user },
+      } = response;
+      if (status === 201) {
+        setUsers({ type: EDIT_USER, payload: user });
+      }
     } catch (error) {
       console.error(error);
     }
@@ -176,6 +216,7 @@ export function UserProvider({ children }) {
         getProfile,
         addBookmark,
         removePostBookmark,
+        editUser,
       }}
     >
       {children}

@@ -34,22 +34,21 @@ form {
   font-weight: bold;
   background-color: #00acee;
 }
-
-input {
-  padding: 0.5rem 1rem;
-  width: 20rem;
+/ input {
+  /* padding: 0.5rem 1rem;
+  width: 20rem; */
   /* border-color: #00acee; */
 }
 
-input:focus {
+/* input:focus {
   border: 3px solid #00acee;
-}
+} */
 
 .signup_input {
   text-align: left;
   /* padding: 10px; */
 }
 
-::placeholder {
+/* ::placeholder {
   color: #00acee;
-}
+} */

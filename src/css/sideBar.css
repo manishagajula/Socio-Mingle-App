@@ -1,0 +1,133 @@
+/* body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.sideBar {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* position: fixed; */
+  top: 0;
+  height: 100vh;
+  /* width: 500px; */
+  background-color: white;
+  /* padding: 0px; */
+}
+.innerSideBar {
+  /* display: flex;
+  justify-content: space-between;
+  flex-direction: column; */
+}
+/* .Links {
+  padding: 10px;
+} */
+
+.sidebarLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+}
+
+.navBtns {
+  /* display: flex; */
+  /* gap: 29rem; */
+  /* flex-direction: column; */
+  /* gap: 550px; */
+  /* justify-content: space-between; */
+}
+
+.btn {
+  /* padding-left: 0px;
+  padding-right: 0px; */
+  background-color: #07a0c3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 150px;
+  font-size: 1rem;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.logoutbtn {
+  background-color: #07a0c3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  font-size: 1rem;
+  /* padding-right: 10px;
+  padding-left: 10px; */
+}
+
+nav {
+  padding-left: 150px;
+  padding-right: 50px;
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+
+  font-size: 1.5rem;
+}
+/* 
+.postButton {
+  display: flex;
+  flex-direction: column;
+} */
+
+.logout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.brandLogo2 {
+  font-size: 1.5rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.brandLogo {
+  color: black;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.Link {
+  text-decoration: none;
+}
+
+.tabLink {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.reactIcons {
+  color: black;
+  /* padding-right: 5px; */
+  font-size: 1.9rem;
+}
+
+.sidebarIcons {
+  color: black;
+  font-size: 20px;
+}
+
+.brandLogo3 {
+  font-size: 1.9rem;
+  display: flex;
+  flex-direction: row;
+}

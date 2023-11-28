@@ -1,0 +1,112 @@
+.editProfileWrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.innerEditProfileWrapper {
+  width: 100%;
+  max-width: 600px;
+  height: 60vh;
+  background-color: orange;
+}
+
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bgCoverImage {
+  height: 100px;
+  width: 100%;
+  color: red;
+  left: 190px;
+  bottom: 100px;
+}
+
+.avatarImagesize {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.chooseAvatarButtonOption {
+  height: auto;
+  width: 300px;
+  background-color: blueviolet;
+  z-index: 10;
+  position: absolute;
+  top: 30%;
+  padding: 5px;
+  /* position: relative;
+  right: 400px; */
+}
+
+.chooseAvatarButton {
+  margin-right: 70px;
+}
+
+.avataroptionsmodal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.avatarHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.backgroundCoverImage {
+  width: 100%;
+  position: relative;
+}
+
+.coverImageFileSelect {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.cameraicon {
+  height: 20px;
+  width: 20px;
+}
+
+.profileModalHiddenImage {
+  display: none;
+}
+
+.profileImage {
+  position: relative;
+}
+
+.cameraContainer {
+  position: absolute;
+  top: 14%;
+  left: 2%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px 0;
+}
+
+.updateAvatarWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+h3 {
+  margin-right: 110px;
+}

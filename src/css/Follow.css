@@ -1,13 +1,22 @@
 .followContainer {
   border: 1px solid #ccc;
+  /* display: flex;
+  justify-content: space-between;
+  flex-direction: column; */
+  padding: 10px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  /* background-color: #bbe5ef; */
+  background-color: #c0f0fa;
+  border-radius: 10px;
+  /* position: fixed; */
+  border: hidden;
 }
 
 .followUserContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 0px;
-  gap: 2rem;
+  width: 330px;
+  padding: 0;
 }
 
 .name,
@@ -15,6 +24,69 @@
   margin: 0.7rem;
 }
 
+.name {
+  font-weight: 500;
+  margin: 0;
+  /* margin-top: -10px; */
+}
+
+.username {
+  color: grey;
+  font-weight: 500;
+  margin: 0;
+  /* margin-top: -10px; */
+}
+
 .followBtn {
-  align-self: flex-end;
+  /* background-color: #5bc3eb; */
+  background-color: #07a0c3;
+  border-radius: 5px;
+  color: white;
+  border: hidden;
+  padding: 4px;
+  border: hidden;
+}
+
+.followHeader {
+  text-align: left;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.followUser {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+}
+
+.followName {
+  display: flex;
+}
+
+.followAvatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  /* margin: 0.7rem; */
+  /* padding-top: 10px; */
+}
+
+.followSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.follownames {
+  /* margin-left: -15px; */
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
