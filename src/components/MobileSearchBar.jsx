@@ -1,28 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SearchContext } from "../context/SearchContext";
 import { UserContext } from "../context/UserContext";
 import { FaSearch } from "react-icons/fa";
-import "../css/search.css";
-import { useState } from "react";
-
-export const Search = () => {
+import "../css/mobileSearchBar.css";
+export const MobileSearchBar = () => {
   const { search, setSearch } = useContext(SearchContext);
   const {
     users: { allUsers },
   } = useContext(UserContext);
   const [allUsersList, setAllUsersList] = useState([]);
-
-  console.log({ allUsers });
   return (
-    <div className="searchItem" style={{ zIndex: "1" }}>
-      <div className="searchcenter">
+    <div className="searchItemMobile" style={{ zIndex: "1" }}>
+      <div className="searchcenterMobile">
+        {/* <div> */}
         <label htmlFor="search">
-          {/* Search: */}
           <input
-            className="search_input"
-            type="text"
-            name="search"
+            className="searchbarForMobile"
             placeholder="Search here"
+            name="search"
+            type="text"
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
@@ -43,53 +39,42 @@ export const Search = () => {
             }}
           />
         </label>
-
-        <div className="searchLogo">
+        <div className="searchLogoMobile">
           <FaSearch />
         </div>
+        {/* </div> */}
       </div>
-
-      {search.length > 0 && allUsersList.length > 0 && (
-        <ul
-          className="searchListName"
-          // style={{
-          //   // backgroundColor: "white",
-          //   listStyle: "none",
-          //   position: "fixed",
-          //   width: "auto",
-          // }}
-        >
+      {search.length > 0 && allUsersList.length > 0 ? (
+        <ul className="searchListNameForMobile">
           {allUsersList.map(
             ({ firstName, lastName, username, profileAvatar }) => (
-              <li className="searchList">
+              <li className="searchListMobile">
                 <div>
-                  {/* <div className="searchListName"> */}
-                  <div className="searchName">
+                  <div className="searchNameMobile">
                     <span>
-                      {" "}
                       <img
                         src={profileAvatar}
                         alt={""}
-                        className="searchNameAvatar"
+                        className="searchNameAvatarMobile"
                       />
                     </span>
-                    <div className="searchUsers">
-                      <div className="searchUserFirstName">
+                    <div className="searchUsersMobile">
+                      <div className="searchUserFirstNameMobile">
                         {firstName} {lastName}
                       </div>
-                      <div className="searchUserName">{username}</div>
+                      <div className="searchUserNameMobile"> {username}</div>
                     </div>
                   </div>
                 </div>
-                {/* </div> */}
               </li>
             )
           )}
         </ul>
-      )}
-      {search.length > 0 && allUsersList.length === 0 && (
-        <p className="searchListName">No Results Found</p>
-      )}
+      ) : search.length > 0 ? (
+        allUsersList.length === 0 && (
+          <p className="searchListNameForMobile"> No Results Found</p>
+        )
+      ) : null}
     </div>
   );
 };

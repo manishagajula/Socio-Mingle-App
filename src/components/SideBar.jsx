@@ -10,6 +10,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { UserContext } from "../context/UserContext";
 import { CreatePostModal } from "./CreatePostModal";
+import { MdAddCircleOutline } from "react-icons/md";
 
 export const SideBar = () => {
   const { handleLogout, currentUser } = useContext(AuthContext);
@@ -41,10 +42,12 @@ export const SideBar = () => {
             <Link to="/" className="Link">
               {/* <HomeIcon /> */}
               <div className="logo">
-                <BiHomeAlt2 className="sidebarIcons" />
-                <span>
+                <div>
+                  <BiHomeAlt2 className="sidebarIcons" />{" "}
+                </div>
+                <div>
                   <strong className="tabLink"> Home</strong>
-                </span>
+                </div>
               </div>
             </Link>
             <Link to="/explore" className="Link">
@@ -82,12 +85,16 @@ export const SideBar = () => {
             </Link>
           </ul>
           <div className="navBtns">
+            {/* <div></div> */}
             <button
               className="btn"
               onClick={() => {
                 setShowCreatePostModal(true);
               }}
             >
+              <div className="addIcon">
+                <MdAddCircleOutline />
+              </div>
               New Post
             </button>
           </div>

@@ -7,10 +7,10 @@ export const UserAvatar = ({
 }) => {
   console.log({ ASO: selectedUser });
   return (
-    <>
-      {selectedUser?.profileAvatar ? (
+    <div className="profileAvatarOptions">
+      {profileImage ? (
         <img
-          src={selectedUser?.profileAvatar}
+          src={profileImage}
           alt={selectedUser?.firstName}
           className={openedFromMyProfile ? "editProfileImage" : "dummyImage"}
           width={30}
@@ -25,6 +25,6 @@ export const UserAvatar = ({
           height={30}
         />
       )}
-    </>
+    </div>
   );
 };

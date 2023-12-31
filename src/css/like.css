@@ -1,5 +1,13 @@
 .like {
   border: hidden;
+  /* background-color: white; */
   background-color: white;
   font-size: 15px;
+}
+
+.colorChange {
+  color: #f91880;
+  font-size: 15px;
+  border: hidden;
+  background-color: white;
 }

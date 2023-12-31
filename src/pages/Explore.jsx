@@ -9,9 +9,9 @@ import { Posts } from "../components/Posts";
 
 export const Explore = () => {
   return (
-    <div>
+    <div className="explorepageouterdiv">
       <h1 className="exploreHeader">Explore</h1>
-      <Posts />;
+      <Posts />
     </div>
   );
 };

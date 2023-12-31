@@ -11,6 +11,7 @@ export function PostProvider({ children }) {
   console.log(posts);
   const { token } = useContext(AuthContext);
   const { GET_ALL_POSTS } = postConstants;
+  console.log(posts);
 
   useEffect(() => {
     (async () => {

@@ -20,3 +20,158 @@
 }
 
 /* .dotsIcon */
+
+.editbtn {
+  /* display: flex;
+  justify-content: flex-end;
+  padding: 10px; */
+  /* display: flex;
+  justify-content: flex-start;
+  padding: 10px; */
+  position: relative;
+  z-index: 4;
+  right: 80px;
+  /* padding: 8px;
+  border-radius: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: none; */
+  /* background-color: #07a0c3; */
+}
+
+.editbtnOption {
+  padding: 8px;
+  /* border-radius: 20px; */
+  padding-right: 32.5px;
+  padding-left: 15px;
+  border: none;
+  background-color: #c0f0fa;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 15px;
+}
+
+.editbtnOption:hover {
+  background-color: #07a0c3;
+  color: white;
+}
+
+.deletebtnOption {
+  padding: 8px;
+  /* border-radius: 20px; */
+  padding-right: 15px;
+  padding-left: 15px;
+  border: none;
+  background-color: #c0f0fa;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 15px;
+}
+
+.deletebtnOption:hover {
+  background-color: #07a0c3;
+  color: white;
+}
+
+.editOptionsOnPost {
+  position: absolute;
+  /* background-color: #07a0c3; */
+}
+
+.tripleDotsOption {
+  /* display: flex;
+  justify-content: flex-end; */
+  /* padding: 10px; */
+  position: relative;
+  /* right: 50px; */
+}
+
+/* .tripledotsOptions {
+  border-radius: 10px;
+} */
+
+.followOptionbtn {
+  padding: 8px;
+  border-radius: 20px;
+  padding-right: 15px;
+  /* padding-left: 15px; */
+  border: none;
+  background-color: #c0f0fa;
+  font-size: 15px;
+  margin-left: -80px;
+  /* color: white; */
+}
+
+.followOptionbtn:hover {
+  padding: 8px;
+  border-radius: 20px;
+  padding-right: 15px;
+  /* padding-left: 15px; */
+  border: none;
+  background-color: #07a0c3;
+  color: white;
+  font-size: 15px;
+}
+
+.followIcon {
+  /* margin-right: 5px;
+  margin-top: 10px; */
+  margin-bottom: -4px;
+  margin-right: 5px;
+}
+
+.unFollowIcon {
+  margin-right: 5px;
+  margin-top: 1px;
+}
+
+.editIcon {
+  margin-right: 5px;
+}
+
+.deleteIcon {
+  margin-right: 5px;
+}
+
+@media (max-width: 390px) {
+  .followOptionbtn {
+    /* padding-left: 10px; */
+    width: 110px;
+    /* padding-right: 0px; */
+    margin-left: -90px;
+    /* padding-left: 0px; */
+  }
+  .followOptionbtn:hover {
+    background-color: #c0f0fa;
+  }
+  .followIcon {
+    padding-left: 0px;
+    margin-bottom: -2px;
+  }
+  .editbtnOption {
+    width: 90px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .editbtnOption:hover {
+    width: 90px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-color: #07a0c3;
+    color: white;
+  }
+  .deletebtnOption {
+    padding-right: 13.4px;
+    padding-left: 13px;
+  }
+  .deletebtnOption:hover {
+    padding-right: 13.4px;
+    padding-left: 13px;
+    background-color: #07a0c3;
+    color: white;
+  }
+
+  .editIcon {
+    margin-left: -5px;
+  }
+}

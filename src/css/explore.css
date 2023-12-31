@@ -17,7 +17,10 @@
 }
 
 .postCardWrapper {
-  border: 1px solid #ccc;
+  /* border: 1px solid black; */
+  /* border-bottom: 1px solid black; */
+  /* border-top-right-radius: 2px;
+  border-top-left-radius: 2px; */
   /* width: 60%;
   margin: 0; */
 
@@ -36,6 +39,21 @@
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.explorepageouterdiv {
+  /* border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black; */
+}
+
+@media (max-width: 390px) {
+  .exploreHeader {
+    /* padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 2.8rem; */
+  }
 }

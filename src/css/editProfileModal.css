@@ -9,13 +9,17 @@
   height: 100%;
   width: 100%;
   z-index: 10;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .innerEditProfileWrapper {
-  width: 100%;
-  max-width: 600px;
+  /* width: 100%; */
+  /* max-width: 600px; */
   height: 60vh;
-  background-color: orange;
+  background-color: #c0f0fa;
+  border-radius: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .profileHeader {
@@ -29,6 +33,7 @@
   color: red;
   left: 190px;
   bottom: 100px;
+  border-radius: 10px;
 }
 
 .avatarImagesize {
@@ -39,8 +44,9 @@
 
 .chooseAvatarButtonOption {
   height: auto;
-  width: 300px;
-  background-color: blueviolet;
+  width: 270px;
+  background-color: #07a0c3;
+  border-radius: 10px;
   z-index: 10;
   position: absolute;
   top: 30%;
@@ -50,13 +56,66 @@
 }
 
 .chooseAvatarButton {
-  margin-right: 70px;
+  margin-right: 50px;
+  /* background-color: #c0f0fa; */
+  font-weight: 600;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 0px;
+  /* padding-right: 5px; */
+  padding-left: 10px;
+}
+
+.closeButton {
+  border: none;
+  border-radius: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 0px;
+  padding-top: 3px;
+  background-color: #07a0c3;
+  font-size: 1rem;
+  /* margin-bottom: 20px; */
+}
+
+.closeButton:hover {
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+}
+
+.closeIcon {
+  /* padding-right: 20px; */
+  border: none;
+  border-radius: 5px;
+  /* padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 0px; */
+
+  margin-top: 15px;
+}
+
+.closeIconpart2 {
+  background-color: #c0f0fa;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.closeIconpart2:hover {
+  background-color: black;
+  color: white;
+  border-radius: 15px;
 }
 
 .avataroptionsmodal {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;
+  margin-left: 15px;
 }
 
 .avatarHeader {
@@ -77,8 +136,48 @@
 }
 
 .cameraicon {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
+}
+
+.chooseProfileAvatar {
+  /* height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  background-color: aliceblue;
+  text-align: center;
+  margin-left: 24px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px; */
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+
+.uploadProfilePic {
+  /* margin-top: 5px;
+  font-size: 20px;
+  position: relative; */
+  height: 30px;
+  width: 30px;
+  position: relative;
+  left: 5px;
+  top: 5px;
+}
+
+.chooseProfileAvatarfromOptions {
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  background-color: aliceblue;
+  margin-left: 30px;
+  margin-bottom: -20px;
+  position: relative;
 }
 
 .profileModalHiddenImage {
@@ -86,27 +185,123 @@
 }
 
 .profileImage {
-  position: relative;
+  /* position: relative; */
 }
 
-.cameraContainer {
+/* .cameraContainer {
   position: absolute;
   top: 14%;
   left: 2%;
+} */
+
+.profilePhotoFromOptions {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  left: 20px;
+  top: 20px;
 }
 
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 2px 0;
+.avatarOptionsPhotos {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  left: 5px;
+  top: 5px;
 }
 
 .updateAvatarWrapper {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  width: 85%;
   align-items: center;
+  gap: 4rem;
+  margin-top: 7px;
 }
 
 h3 {
-  margin-right: 110px;
+}
+
+.editProfileHeader {
+  font-size: 1.1rem;
+  margin-right: 80px;
+  margin-left: 10px;
+}
+
+.editProfilename {
+  margin-left: 40px;
+}
+
+.savebutton {
+  background-color: #07a0c3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  width: 60px;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  margin-right: 5px;
+}
+
+.savebutton:hover {
+  background-color: #0887a3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  width: 60px;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  margin-right: 5px;
+}
+
+.inputFields {
+  margin-top: 50px;
+}
+
+.firstInputField {
+  border: 1px solid black;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; */
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+  background-color: none;
+  margin-bottom: 10px;
+}
+
+.textField {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+}
+
+.field {
+  margin: 0;
+  padding: 0;
+}
+
+.field {
+  /* display: flex;
+  flex-direction: column;
+  gap: 2px 0; */
+  font-size: small;
+}
+
+.camIcon {
+  position: absolute;
+  top: 35%;
+  left: 50%;
 }

@@ -9,7 +9,12 @@
 }
 
 .editProfileImage {
-  height: 40px;
-  width: 40px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
+  position: absolute;
+}
+
+.profileAvatarOptions {
+  margin: 0 auto;
 }

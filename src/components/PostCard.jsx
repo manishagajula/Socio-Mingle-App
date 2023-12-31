@@ -1,32 +1,36 @@
 import { useNavigate } from "react-router-dom";
-import { Like } from "./LikeComponent";
-import { BookmarkBtn } from "./BookmarkBtn";
-import { EditPost } from "./EditPost";
+import { Like } from "./LikeComponent.jsx";
+import { BookmarkBtn } from "./BookmarkBtn.jsx";
+import { EditPost } from "./EditPost.jsx";
 import "../css/postCard.css";
-import { UserContext } from "../context/UserContext";
-import { dummyProfileImage } from "../Utils/image";
+import { UserContext } from "../context/UserContext.jsx";
+import { dummyProfileImage } from "../Utils/image.js";
 import { useContext } from "react";
+import { TimeWhileAgo } from "./TimeWhileAgo.jsx";
+import { MonthAndYearInfo } from "./MonthAndYearInfo.jsx";
+import { timeDuration } from "../Utils/postTime.js";
+import { FaRegCommentAlt } from "react-icons/fa";
+import { FiShare } from "react-icons/fi";
 
 export const PostCard = ({ post }) => {
   const navigate = useNavigate();
   const handlePostDetail = (id) => {
     navigate(`/post/${id}`);
   };
+
   const {
     users: { selectedUser, allUsers },
   } = useContext(UserContext);
   console.log(allUsers);
 
-  const profiledp = allUsers.find(
-    (user) => user.username === selectedUser.username
-  );
-
-  console.log(profiledp);
-
   const getUserName = allUsers.find(
     (user) => user?.username === post?.username
   );
-  console.log(getUserName);
+
+  const showSelectedUserDp = selectedUser.username === post.username;
+  let imageRegex = new RegExp(
+    /[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/
+  );
   return (
     <div
       key={post.id}
@@ -36,40 +40,64 @@ export const PostCard = ({ post }) => {
       <div className="postCardcontainerssss">
         <div className="iconimage">
           <img
-            src={getUserName?.profileAvatar || dummyProfileImage}
+            src={
+              showSelectedUserDp
+                ? selectedUser.profileAvatar
+                : getUserName?.profileAvatar || dummyProfileImage
+            }
             alt={""}
             className="icon"
           />
         </div>
         <div className="postCont">
           <div className="postData">
-            <p className="nameEdit">
-              <span className="firstNameEdit">{getUserName.firstName}</span>
-              <span className="lastNameEdit"> {getUserName.lastName}</span>
-            </p>
-            <p className="usernameProfile">@{post.username}</p>
-            <p>{post.createdAt}</p>
-            <p>{post.content}</p>
-            <img
-              src={post.postmediaURL}
-              alt={post.postmediaAlt}
-              className="image"
-            />
-            {/* </div> */}
+            <div>
+              <p className="nameEdit">
+                <span className="firstNameEdit">{getUserName.firstName}</span>
+                <span className="lastNameEdit">
+                  {" "}
+                  {getUserName.lastName}
+                </span> .{" "}
+                <span className="postCreatedDate">
+                  {timeDuration(post.createdAt)}
+                </span>
+              </p>
+              <p className="usernameProfile">@{post.username}</p>
+            </div>
+
+            <p className="postContent">{post.content}</p>
+            {post?.postmediaURL && (
+              <>
+                {imageRegex.test(post?.postmediaURL) ||
+                post?.postmediaURL?.includes("unsplash.com") ? (
+                  <img
+                    src={post.postmediaURL}
+                    alt={post.postmediaAlt}
+                    className="image"
+                  />
+                ) : (
+                  <video controls autoPlay loop muted className="image">
+                    <source src={post.postmediaURL} type="video/mp4" />
+                  </video>
+                )}
+              </>
+            )}
           </div>
           <div className="likeBookmark">
             <Like
-              LikeCount={post.likes.likeCount}
-              likedBy={post.likes.likedBy}
+              LikeCount={post?.likes?.likeCount}
+              likedBy={post?.likes?.likedBy}
               postId={post._id}
             />
+            <FaRegCommentAlt />
 
             <BookmarkBtn postId={post._id} />
+            <FiShare />
           </div>
         </div>
 
         <div className="dotsIcon">
-          <EditPost content={post.content} post={post} />
+          <EditPost post={post} />
         </div>
       </div>
     </div>

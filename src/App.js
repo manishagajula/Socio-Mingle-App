@@ -16,6 +16,10 @@ import { Follow } from "./components/Follow";
 import { Like } from "./components/LikeComponent";
 import { BookmarkComponent } from "./components/BookmarkComponent";
 import { PostCard } from "./components/PostCard";
+import { MobileNavbar } from "./components/MobileNavbar";
+import toast, { Toaster } from "react-hot-toast";
+import { MobileSearchBar } from "./components/MobileSearchBar";
+import { SearchPage } from "./pages/SearchPage";
 
 // export
 function App() {
@@ -28,13 +32,14 @@ function App() {
           path="*"
           element={
             <div className="pages">
-              <div>
+              <div className="sidebar">
                 <SideBar />
               </div>
               <main>
                 <div>
                   <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/search" element={<SearchPage />} />
                     <Route path="/explore" element={<Explore />} />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/bookmark" element={<Bookmark />} />
@@ -46,9 +51,12 @@ function App() {
                     {/* <Route path="/postCard" element={<PostCard />} /> */}
                   </Routes>
                 </div>
+                <div className="mobileNav">
+                  <MobileNavbar />
+                </div>
               </main>
-              <aside>
-                <div>
+              <aside className="asidebarstyle">
+                <div className="asideBar">
                   <Search />
                   <Follow />
                 </div>
@@ -57,6 +65,7 @@ function App() {
           }
         />
       </Routes>
+      <Toaster />
     </div>
   );
 }

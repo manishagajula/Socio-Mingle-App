@@ -26,7 +26,9 @@ export const Follow = () => {
 
   const isFollowing = (_id) => {
     return updatedCurrentUser?.following?.some((item) => item?._id === _id);
+    // ask-- what is _id matching with item._id?tell him your explanation what you are understanding from this...!!!
   };
+  // console.log({ updatedCurrentUser, isFollowing });
 
   const navigate = useNavigate();
   const handleSelectedUser = (username) => {
@@ -64,7 +66,7 @@ export const Follow = () => {
                 </div>
                 <div className="followBtn">
                   <button
-                    className="followBtn"
+                    className="followBtns"
                     onClick={() =>
                       isFollowing(_id) ? handleUnFollow(_id) : handleFollow(_id)
                     }

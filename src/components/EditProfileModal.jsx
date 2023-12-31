@@ -5,6 +5,11 @@ import { UserContext } from "../context/UserContext";
 import { dummyProfileImage } from "../Utils/image";
 import { UserAvatar } from "./UserAvatar";
 
+import { IoMdCamera } from "react-icons/io";
+import { PiUserCircleFill } from "react-icons/pi";
+import { FaCamera } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+
 export const EditProfileModal = ({ setEditUserProfileModal }) => {
   const {
     users: { selectedUser },
@@ -53,12 +58,13 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
 
   const [showAvatarOptionsModal, setShowAvatarOptionsModal] = useState(false);
 
+  console.log({ showAvatarOptionsModal });
   return (
     <div
       className="editProfileWrapper"
       onClick={() => {
         console.log("clicked");
-        setEditUserProfileModal(false);
+        // setEditUserProfileModal(false);
       }}
     >
       <form action="" onSubmit={submitForm}>
@@ -69,6 +75,21 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
               e.stopPropagation();
             }}
           >
+            <div className="closeIcon">
+              {" "}
+              <button
+                className="closeIconpart2"
+                onClick={(e) => {
+                  setEditUserProfileModal(false);
+                }}
+              >
+                <IoClose />
+              </button>
+            </div>
+            <h3 className="editProfileHeader">Edit Profile</h3>
+
+            {/* <span className="editProfilename"></span> */}
+
             <button
               className="savebutton"
               type="submit"
@@ -76,7 +97,6 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
             >
               Save
             </button>
-            <h3 className="editProfile">Edit Profile</h3>
           </div>
           <div className="backgroundCoverImage">
             <img
@@ -89,7 +109,9 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
               alt={backgroundCover ? "updatedCoverImage" : "coverImage"}
               className="bgCoverImage"
             />
-
+            <span className="camIcon">
+              <FaCamera />
+            </span>
             <input
               type="file"
               accept="image/*"
@@ -97,7 +119,15 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
               onChange={(e) => {
                 setBackgroundCover(URL?.createObjectURL(e.target.files[0]));
               }}
+              style={{ opacity: 0 }}
             />
+            {/* 
+              for(let i=0;i< e.target.files.length; i++){
+                const response = await api(e.target.files[i])
+                setBackgroundCover(respsonce)
+              }
+            */}
+            {/*  api*/}
           </div>
 
           <div className="updateAvatarWrapper">
@@ -117,11 +147,15 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
                     setProfileImage(URL?.createObjectURL(e.target.files[0]));
                   }}
                 />
-                <img
+                <div className="chooseProfileAvatar">
+                  <IoMdCamera className="uploadProfilePic" />{" "}
+                </div>
+
+                {/* <img
                   src="https://res.cloudinary.com/dmqqgsxrr/image/upload/v1695045786/photo-camera_vywktn.png"
                   alt="addImage"
                   className="cameraicon"
-                />
+                /> */}
               </label>
             </div>
             <div
@@ -135,63 +169,72 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
                 profileImage={profileImage}
                 openedFromMyProfile={true}
               />
-              <div className="cameraContainer">
-                <img
-                  src="https://res.cloudinary.com/dmqqgsxrr/image/upload/v1695045786/photo-camera_vywktn.png"
-                  alt="addImage"
-                  className="cameraicon"
-                />
+              <div className="profilePhotoFromOptions">
+                <PiUserCircleFill className="avatarOptionsPhotos" />
               </div>
             </div>
           </div>
           <div className="inputFields">
-            <div className="field">
-              <label id="firstname"> FirstName</label>
-              <input
-                type="text"
-                value={editFirstNameDetails}
-                for="firstname"
-                rows={5}
-                cols={20}
-                width="100%"
-                onChange={(e) => setEditFirstNameDetails(e.target.value)}
-              />
+            <div className="firstInputField">
+              <label id="firstname">
+                {" "}
+                <div className="field">FirstName</div>
+                <input
+                  type="text"
+                  className="textField"
+                  value={editFirstNameDetails}
+                  for="firstname"
+                  rows={5}
+                  cols={20}
+                  width="100%"
+                  onChange={(e) => setEditFirstNameDetails(e.target.value)}
+                />
+              </label>
             </div>
-            <div className="field">
-              <label id="lastname">LastName</label>
-              <input
-                type="text"
-                value={editLastNameDetails}
-                for="lastname"
-                rows={5}
-                cols={20}
-                width="100%"
-                onChange={(e) => setEditLastNameDetails(e.target.value)}
-              />
+            <div className="firstInputField">
+              <label id="lastname">
+                <div className="field">LastName</div>
+                <input
+                  type="text"
+                  className="textField"
+                  value={editLastNameDetails}
+                  for="lastname"
+                  rows={5}
+                  cols={20}
+                  width="100%"
+                  onChange={(e) => setEditLastNameDetails(e.target.value)}
+                />
+              </label>
             </div>
-            <div className="field">
-              <label id="bio">Bio</label>
-              <input
-                type="text"
-                value={editBioDetails}
-                for="bio"
-                rows={5}
-                cols={20}
-                width="100%"
-                onChange={(e) => setEditBioDetails(e.target.value)}
-              />
+            <div className="firstInputField">
+              <label id="bio">
+                <div className="field">Bio</div>
+                <input
+                  type="text"
+                  className="textField"
+                  value={editBioDetails}
+                  for="bio"
+                  rows={5}
+                  cols={20}
+                  width="100%"
+                  onChange={(e) => setEditBioDetails(e.target.value)}
+                />
+              </label>
             </div>
-            <div className="field">
-              <label id="website">Website</label>
-              <input
-                type="text"
-                value={editWebsiteDetails}
-                for="website"
-                rows={5}
-                cols={20}
-                width="100%"
-                onChange={(e) => setEditWebsiteDetails(e.target.value)}
-              />
+            <div className="firstInputField">
+              <label id="website">
+                <div className="field">Website</div>
+                <input
+                  type="text"
+                  className="textField"
+                  value={editWebsiteDetails}
+                  for="website"
+                  rows={5}
+                  cols={20}
+                  width="100%"
+                  onChange={(e) => setEditWebsiteDetails(e.target.value)}
+                />
+              </label>
             </div>
           </div>
         </div>
@@ -208,7 +251,7 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
                 e.stopPropagation();
               }}
             >
-              close
+              <IoClose className="closemodal" />
             </button>
             <span className="chooseAvatarButton">Choose Your Avatar</span>
           </div>

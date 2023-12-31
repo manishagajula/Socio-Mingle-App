@@ -13,15 +13,27 @@ import { EditProfileModal } from "./EditProfileModal";
 import { PostCard } from "./PostCard";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { TiAttachment } from "react-icons/ti";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { parseISO } from "date-fns";
+import { MonthAndYearInfo } from "./MonthAndYearInfo";
+import { RiChatSettingsLine } from "react-icons/ri";
 
 export const Profile = () => {
+  const [editUserProfileModal, setEditUserProfileModal] = useState(false);
+  // const [profileImage, setProfileImage] = useState(selectedUser?.profileAvatar);
   const { username } = useParams();
-  const { currentUser } = useContext(AuthContext);
-  const { handleFollow, handleUnFollow } = useContext(UserContext);
+  const { currentUser, handleLogout } = useContext(AuthContext);
+  const {
+    handleFollow,
+    handleUnFollow,
+    users: { allUsers },
+  } = useContext(UserContext);
   const {
     users: { selectedUser, allBookmarks },
     getProfile,
   } = useContext(UserContext);
+
   //   const [data, setData] = useState({});
   // const { currentUser } = useContext(AuthContext);
   console.log(allBookmarks);
@@ -29,35 +41,56 @@ export const Profile = () => {
     posts: { allPosts },
   } = useContext(PostContext);
 
+  const date = parseISO(selectedUser?.createdAt);
+
   console.log(selectedUser);
   console.log(allPosts);
 
+  const handleLogoutHandler = () => {
+    handleLogout();
+    navigate("/login");
+  };
+
   // const getCount = (allposts) => allposts.map((allpost) => allpost.length);
   // console.log(getCount);
-
-  const [editUserProfileModal, setEditUserProfileModal] = useState(false);
-  const [profileImage, setProfileImage] = useState(selectedUser?.profileAvatar);
 
   const displayPosts = allPosts?.filter(
     (posts) => posts.username === selectedUser.username
   );
 
-  const userAlreadyFollowing = selectedUser?.followers?.find(
+  const updatedCurrentUser = allUsers.find(
     (user) => user.username === currentUser.username
   );
+  const userAlreadyFollowing = updatedCurrentUser?.following?.find(
+    (user) => user._id === selectedUser?._id
+  );
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/explore");
+  };
 
   useEffect(() => {
     getProfile(username);
     // getPostsByUsernameOrLoggedInUser(selectedUser?.username);
   }, [username]);
 
+  console.log({ currentUser, selectedUser, updatedCurrentUser, allUsers });
   return (
     <div>
-      <h1>
-        {selectedUser.firstName}
-        <span>{selectedUser.lastName}</span>
-      </h1>
-      <h3>{displayPosts.length} posts</h3>
+      <div className="ProfileHeaderProMax">
+        <div onClick={() => handleClick()} className="arrowIcon">
+          <FaArrowLeft />
+        </div>
+        <div className="profileHeaderName">
+          <h1 className="profileHeader">
+            {selectedUser.firstName} {selectedUser.lastName}
+          </h1>
+
+          <h3 className="profilePostsCount">{displayPosts.length} posts</h3>
+        </div>
+      </div>
       <div className="profile-border">
         <div className="Edit-profile">
           <div className="profilecover-image">
@@ -86,15 +119,24 @@ export const Profile = () => {
                   >
                     Edit Profile
                   </button>
-                  <button className="logoutbutton">Logout</button>
+                  <button
+                    className="logoutbutton"
+                    onClick={() => handleLogoutHandler()}
+                  >
+                    Logout
+                  </button>
                 </>
               ) : (
                 <>
                   {" "}
                   <button
                     className="buttonFollowProfilePage"
-                    onClick={() =>
-                      userAlreadyFollowing ? handleUnFollow : handleFollow
+                    onClick={
+                      () =>
+                        userAlreadyFollowing
+                          ? handleUnFollow(selectedUser?._id)
+                          : handleFollow(selectedUser?._id)
+                      // always pass the id whom you want to follow i.e- tara, arjun etc.
                     }
                   >
                     {" "}
@@ -108,8 +150,7 @@ export const Profile = () => {
         <div>
           <div className="profile-data">
             <p className="firstname">
-              <span>{selectedUser.firstName}</span>
-              {selectedUser.lastName}{" "}
+              <span>{selectedUser.firstName}</span> {selectedUser.lastName}{" "}
             </p>
             <div className="profileUsername">@{selectedUser.username}</div>
 
@@ -131,7 +172,8 @@ export const Profile = () => {
               <p>
                 {" "}
                 <FaRegCalendarAlt />{" "}
-                <span>{selectedUser?.createdAt?.split("T")[0]} </span>
+                {/* <span>{selectedUser?.createdAt?.split("T")[0]} </span> */}
+                <MonthAndYearInfo timestamp={selectedUser?.createdAt} />
               </p>
               <span> {selectedUser?.followers?.length} </span>
               <span> Followers </span>

@@ -14,7 +14,7 @@ export const BookmarkBtn = ({ postId }) => {
   const isPostsBookmarked = (_id) => {
     return allBookmarks?.find((post) => post._id === _id);
   };
-
+  console.log(postId);
   return (
     <button
       className="bookmrkbtn"

@@ -33,6 +33,7 @@ export const usersReducer = (state, action) => {
         ...state,
         selectedUser: action.payload,
       };
+
     case GET_BOOKMARKS:
       return { ...state, allBookmarks: action.payload };
     case BOOKMARK_POST:

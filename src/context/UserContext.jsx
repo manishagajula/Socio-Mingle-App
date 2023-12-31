@@ -16,7 +16,7 @@ export const UserContext = createContext();
 export function UserProvider({ children }) {
   // const [users, setUsers] = useState([]);
   const [users, setUsers] = useReducer(usersReducer, initialUsers);
-  const { token } = useContext(AuthContext);
+  const { token, setCurrentUser } = useContext(AuthContext);
   console.log(users);
 
   // const [post, setPost] = useReducer(postReducer, initialPost);
@@ -48,6 +48,7 @@ export function UserProvider({ children }) {
     } = response;
     if (status === 200) {
       setUsers({ type: FOLLOW_USER, payload: [user, followUser] });
+      // setCurrentUser(user);
     }
     console.log({ response });
   };
@@ -67,6 +68,7 @@ export function UserProvider({ children }) {
     } = response;
     if (status === 200) {
       setUsers({ type: UNFOLLOW_USER, payload: [user, followUser] });
+      // setCurrentUser(user);
     }
     console.log(response);
   };
@@ -75,13 +77,13 @@ export function UserProvider({ children }) {
     try {
       const response = await axios.get(`/api/users/${username}`);
       if (response.status === 200) {
-        console.log(response);
         setUsers({
           type: SELECTED_USER_PROFILE,
-          payload: response.data.user,
+          payload: response?.data?.user,
         });
         // return response.data.users;
-        console.log(response.data.users);
+        console.log(response?.data?.users);
+        console.log(response);
       }
     } catch (e) {
       console.error(e);
@@ -97,12 +99,14 @@ export function UserProvider({ children }) {
         {
           headers: { authorization: token },
         }
+        // always write headers:{authorization: token} in post request during api calls
       );
       console.log({ response });
       const {
         status,
         data: { bookmarks },
       } = response;
+      console.log(bookmarks);
       if (status === 200) {
         setUsers({ type: BOOKMARK_POST, payload: bookmarks });
       }
@@ -121,6 +125,7 @@ export function UserProvider({ children }) {
         {},
         {
           headers: { authorization: token },
+          // in post request after await.axios.post("/api/...", we are going to add a curly braces starting with comma and write the data that we need to pass to the api in curly braces like here we have passed in signup and login eg-of signup:-{ username:email,password,firstName,lastName,confirmPassword, _id:uuid()}) we have to send the data to the api call hence we have to write this curly brackets  // always write headers:{authorization: token} in post request during api calls, but here in login and signup apis we have not written {headers:{authorization:token}} in curly braces cause we are getting token after the api call in response hence we have not written {headers:{authorization:token}} in curly braces.
         }
       );
       console.log({ response });
@@ -131,7 +136,7 @@ export function UserProvider({ children }) {
       if (status === 200) {
         setUsers({
           type: REMOVE_BOOKMARK,
-          payload: [bookmarks],
+          payload: bookmarks,
         });
       }
     } catch (error) {
@@ -182,6 +187,7 @@ export function UserProvider({ children }) {
       } = response;
       if (status === 201) {
         setUsers({ type: EDIT_USER, payload: user });
+        setCurrentUser(user);
       }
     } catch (error) {
       console.error(error);

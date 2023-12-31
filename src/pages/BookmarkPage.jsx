@@ -1,14 +1,16 @@
 import React from "react";
 import { BookmarkComponent } from "../components/BookmarkComponent";
+import "../css/bookmarkPage.css";
+
 export const Bookmark = () => {
   return (
     <div>
       <div>
-        <h1> This is Bookmark page </h1>
+        <h1 className="bookmarkHeader"> Bookmarks </h1>
       </div>
-      <div>
-        <BookmarkComponent />
-      </div>
+      {/* <div> */}
+      <BookmarkComponent />
+      {/* </div> */}
     </div>
   );
 };
