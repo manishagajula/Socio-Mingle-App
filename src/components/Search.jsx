@@ -4,6 +4,9 @@ import { UserContext } from "../context/UserContext";
 import { FaSearch } from "react-icons/fa";
 import "../css/search.css";
 import { useState } from "react";
+import { dummyProfileImage } from "../Utils/image";
+import { useNavigate } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
 export const Search = () => {
   const { search, setSearch } = useContext(SearchContext);
@@ -13,6 +16,13 @@ export const Search = () => {
   const [allUsersList, setAllUsersList] = useState([]);
 
   console.log({ allUsers });
+
+  const navigate = useNavigate();
+  const handleSearchPage = (username) => {
+    navigate(`/profile/${username}`);
+    setSearch("");
+    setAllUsersList([]);
+  };
   return (
     <div className="searchItem" style={{ zIndex: "1" }}>
       <div className="searchcenter">
@@ -45,7 +55,13 @@ export const Search = () => {
         </label>
 
         <div className="searchLogo">
-          <FaSearch />
+          {search.length > 0 ? (
+            <span onClick={() => setSearch("")}>
+              <IoMdClose />{" "}
+            </span>
+          ) : (
+            <FaSearch />
+          )}
         </div>
       </div>
 
@@ -64,11 +80,16 @@ export const Search = () => {
               <li className="searchList">
                 <div>
                   {/* <div className="searchListName"> */}
-                  <div className="searchName">
+                  <div
+                    className="searchName"
+                    onClick={() => {
+                      handleSearchPage(username);
+                    }}
+                  >
                     <span>
                       {" "}
                       <img
-                        src={profileAvatar}
+                        src={profileAvatar || dummyProfileImage}
                         alt={""}
                         className="searchNameAvatar"
                       />

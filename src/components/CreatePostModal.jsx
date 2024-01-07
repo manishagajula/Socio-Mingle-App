@@ -6,10 +6,11 @@ import { postConstants } from "../constants/post_constants";
 import "../css/editPostModal.css";
 import toast from "react-hot-toast";
 import { UserContext } from "../context/UserContext";
+import { dummyProfileImage } from "../Utils/image";
 
 export const CreatePostModal = ({ setShowCreatePostModal }) => {
   const [createPost, setCreatePost] = useState("");
-  const { token } = useContext(AuthContext);
+  const { token, currentUser } = useContext(AuthContext);
   const { setPosts } = useContext(PostContext);
   const { CREATE_POST } = postConstants;
 
@@ -57,7 +58,7 @@ export const CreatePostModal = ({ setShowCreatePostModal }) => {
 
         {/* <textarea name="" id="" cols="30" rows="10"></textarea> */}
         <img
-          src={selectedUser.profileAvatar}
+          src={currentUser.profileAvatar || dummyProfileImage}
           alt={""}
           className="newPostimageavatar"
         />

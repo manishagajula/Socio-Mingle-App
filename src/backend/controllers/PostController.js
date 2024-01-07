@@ -77,7 +77,7 @@ export const createPostHandler = function (schema, request) {
         }
       );
     }
-    const { postData } = JSON.parse(request.requestBody);
+    const { postData, postmediaURL } = JSON.parse(request.requestBody);
     const post = {
       _id: uuid(),
       content: postData,
@@ -89,6 +89,7 @@ export const createPostHandler = function (schema, request) {
       username: user.username,
       createdAt: formatDate(),
       updatedAt: formatDate(),
+      postmediaURL,
     };
     this.db.posts.insert(post);
     return new Response(201, {}, { posts: this.db.posts });

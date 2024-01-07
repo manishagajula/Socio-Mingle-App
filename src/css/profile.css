@@ -76,8 +76,8 @@
   /* left: 850px; */
   /* left: 56.5rem;
   bottom: 3.5rem; */
-  top: 80px;
-  /* bottom: 50px; */
+  /* top: 30px; */
+  bottom: 50px;
   left: 290%;
   padding-left: 10px;
   padding-right: 10px;
@@ -92,8 +92,8 @@
   position: relative;
   /* left: 56.5rem;
   bottom: 3.5rem; */
-  top: 80px;
-  /* bottom: 50px; */
+  /* top: 80px; */
+  bottom: 50px;
   left: 298%;
   padding-left: 10px;
   padding-right: 10px;
@@ -164,4 +164,15 @@
   color: grey;
   font-size: 1rem;
   font-weight: 400;
+}
+
+@media (max-width: 390px) {
+  .editbutton {
+    top: 30px;
+    bottom: 50px;
+  }
+  .logoutbutton {
+    top: 80px;
+    bottom: 50px;
+  }
 }

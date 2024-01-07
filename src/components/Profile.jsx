@@ -76,7 +76,8 @@ export const Profile = () => {
     // getPostsByUsernameOrLoggedInUser(selectedUser?.username);
   }, [username]);
 
-  console.log({ currentUser, selectedUser, updatedCurrentUser, allUsers });
+  console.log(username);
+
   return (
     <div>
       <div className="ProfileHeaderProMax">

@@ -31,6 +31,8 @@ export const PostCard = ({ post }) => {
   let imageRegex = new RegExp(
     /[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/
   );
+
+  console.log({ BGM: selectedUser });
   return (
     <div
       key={post.id}
@@ -42,7 +44,7 @@ export const PostCard = ({ post }) => {
           <img
             src={
               showSelectedUserDp
-                ? selectedUser.profileAvatar
+                ? selectedUser.profileAvatar || dummyProfileImage
                 : getUserName?.profileAvatar || dummyProfileImage
             }
             alt={""}
@@ -69,7 +71,8 @@ export const PostCard = ({ post }) => {
             {post?.postmediaURL && (
               <>
                 {imageRegex.test(post?.postmediaURL) ||
-                post?.postmediaURL?.includes("unsplash.com") ? (
+                post?.postmediaURL?.includes("unsplash.com") ||
+                post.postmediaURL.includes("blob:") ? (
                   <img
                     src={post.postmediaURL}
                     alt={post.postmediaAlt}

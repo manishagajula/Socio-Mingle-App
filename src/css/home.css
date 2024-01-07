@@ -134,6 +134,8 @@
   border-radius: 100%;
   padding: 20px;
   margin-left: 5px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .whatsHappening {
@@ -172,8 +174,9 @@
 }
 
 .PostButton {
-  margin-left: 585px;
-  margin-bottom: 10px;
+  /* flex-direction: column; */
+  /* margin-left: 77%;
+  margin-bottom: 10px; */
   /* margin-top: -50px; */
   padding-top: 8px;
   padding-bottom: 8px;
@@ -183,11 +186,12 @@
   border: none;
   background-color: #c0f0fa;
   font-size: 15px;
+  margin-right: 54px;
 }
 
 .PostButton:hover {
-  margin-left: 585px;
-  margin-bottom: 10px;
+  /* margin-left: 585px; */
+  /* margin-bottom: 10px; */
   /* margin-top: -40px; */
   padding-top: 8px;
   padding-bottom: 8px;
@@ -199,9 +203,42 @@
   color: white;
 }
 
-.PostbtnOnHome {
-  margin-top: 10px;
+.postImages {
+  position: absolute;
+  top: 50%;
+  /* right: 50%; */
+  left: -20%;
+  font-size: 25px;
 }
+
+.PostbtnOnHome {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.uploadNewImageforPost {
+  position: absolute;
+  top: 20%;
+  left: 55%;
+
+  /* display: none; */
+}
+
+.uploadImgContainer {
+  position: relative;
+}
+
+/* .uploadImagesWhenPost {
+  right: 80px;
+} */
+
+/* .chooseFileInput {
+  position: relative;
+  left: 160px;
+} */
 
 .bgcolor-1 {
   background-color: #07a0c3;
@@ -224,6 +261,68 @@
   /* border-bottom: 1px solid black; */
   /* margin-left: 50px;
   margin-right: 50px; */
+}
+
+.imagePostCancel {
+  position: relative;
+}
+
+.cancelbtOnImage {
+  position: absolute;
+  left: 15px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 20px;
+  padding: 0px;
+  border-radius: 50px;
+}
+
+.cancelbtOnImage:hover {
+  position: absolute;
+  left: 15px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  padding: 0px;
+}
+
+.uploadNewImage {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 0px;
+}
+
+.uploadImageSizing {
+  margin-right: 56px;
+  margin-left: 15px;
+  margin-top: -2px;
+}
+
+.uploadIconWrapper {
+  position: relative;
+}
+
+.uploadIcon {
+  position: absolute;
+  bottom: 0px;
+  right: 70px;
+}
+
+/* .fileUpload {
+  opacity: 1;
+  position: "absolute";
+  bottom: "5px";
+  right: "50px";
+} */
+
+.postBtns {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-right: 60px;
 }
 
 @media (max-width: 768px) {

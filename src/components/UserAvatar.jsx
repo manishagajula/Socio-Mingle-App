@@ -5,12 +5,12 @@ export const UserAvatar = ({
   profileImage,
   openedFromMyProfile,
 }) => {
-  console.log({ ASO: selectedUser });
+  console.log({ AGM: selectedUser, GM: profileImage });
   return (
     <div className="profileAvatarOptions">
-      {profileImage ? (
+      {selectedUser?.profileAvatar ? (
         <img
-          src={profileImage}
+          src={profileImage || selectedUser?.profileAvatar}
           alt={selectedUser?.firstName}
           className={openedFromMyProfile ? "editProfileImage" : "dummyImage"}
           width={30}
@@ -18,7 +18,7 @@ export const UserAvatar = ({
         />
       ) : (
         <img
-          src={selectedUser?.profileAvatar}
+          src={profileImage || dummyProfileImage}
           alt="DummyProfile"
           className={openedFromMyProfile ? "editProfileImage" : "dummyImage"}
           width={30}

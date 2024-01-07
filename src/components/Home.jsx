@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { PostContext } from "../context/PostContext";
 import { Like } from "./LikeComponent";
 import { PostCard } from "./PostCard";
@@ -9,6 +9,10 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
 import { postConstants } from "../constants/post_constants";
 import axios from "axios";
+import { RiImageAddLine } from "react-icons/ri";
+import { MdCancel } from "react-icons/md";
+import { FaCamera } from "react-icons/fa";
+import { dummyProfileImage } from "../Utils/image.js";
 
 export const Home = () => {
   const {
@@ -27,6 +31,7 @@ export const Home = () => {
   // const []
   const [sorted, setSorted] = useState(allPosts);
   const [whatsYourPost, setWhatsYourPost] = useState("");
+  const [uploadNewImage, setUploadNewImage] = useState("");
   // const [trendingPost, setTrendingPost] = useState(false);
   // const [latestPost, setLatestPost] = useState(false);
   // const [oldest, setOldest] = useState(false);
@@ -36,6 +41,7 @@ export const Home = () => {
     latest: false,
     oldest: false,
   });
+  const inputRef = useRef();
 
   // const [activeTab, setActiveTab] = useState(false);
 
@@ -46,12 +52,12 @@ export const Home = () => {
   console.log(setWhatsYourPost);
   console.log(whatsYourPost);
 
-  const handlePost = async (postData) => {
+  const handlePost = async (postData, uploadNewImage) => {
     console.log({ postData });
     try {
       const response = await axios.post(
         `/api/posts`,
-        { postData },
+        { postData, postmediaURL: uploadNewImage },
         {
           headers: { authorization: token },
         }
@@ -67,7 +73,7 @@ export const Home = () => {
   };
 
   // let toogleBtn = activeTab ? "active" : null;
-
+  console.log(allPosts);
   const handleTrendingPosts = () => {
     console.log({ ss: sorted });
     // const sortedPosts = [...sorted].sort(
@@ -126,48 +132,104 @@ export const Home = () => {
     // setOldest(false);
   };
 
+  // const submitForm = (e) => {
+
+  // };
+
   useEffect(() => {
-    setSorted(allPosts);
+    setSorted(
+      allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    );
   }, [allPosts]);
 
-  console.log({ sorted });
+  console.log({ uploadNewImage, sorted });
   return (
     <>
       <div className="whatsHappening">
         <div className="homeavatar">
           <img
-            src={currentUser?.profileAvatar}
+            src={currentUser?.profileAvatar || dummyProfileImage}
             alt={""}
             className="homeimageavatar"
           />
         </div>
         <form className="textAreaToPost">
-          <textarea
-            name="textarea"
-            rows={10}
-            column={10}
-            value={whatsYourPost}
-            placeholder="What is happening?!"
-            className="textAreaHome"
-            onChange={(e) => setWhatsYourPost(e.target.value)}
-          ></textarea>
+          <div>
+            <textarea
+              name="textarea"
+              rows={10}
+              column={10}
+              value={whatsYourPost}
+              placeholder="What is happening?!"
+              className="textAreaHome"
+              onChange={(e) => setWhatsYourPost(e.target.value)}
+            ></textarea>
+            {uploadNewImage ? (
+              <div className="imagePostCancel">
+                <button
+                  className="cancelbtOnImage"
+                  onClick={(e) => {
+                    setUploadNewImage("");
+                    e.preventDefault();
+                  }}
+                >
+                  <MdCancel />
+                </button>
+                <div className="uploadImageSizing">
+                  {" "}
+                  <img
+                    className="uploadNewImage"
+                    src={uploadNewImage}
+                    alt="demo"
+                  />{" "}
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+
+          <div className="postBtns">
+            <div className="uploadIconWrapper">
+              <span className="uploadIcon">
+                <RiImageAddLine />
+              </span>
+              <label htmlFor="uploadNewImagesOnYourPost">
+                <input
+                  id="uploadNewImagesOnYourPost"
+                  type="file"
+                  accept="image/*"
+                  className="fileUpload"
+                  ref={inputRef}
+                  onChange={(e) => {
+                    setUploadNewImage(URL?.createObjectURL(e.target.files[0]));
+                  }}
+                  style={{
+                    opacity: 0,
+                    position: "absolute",
+                    bottom: "5px",
+                    right: "50px",
+                    width: "50px",
+                  }}
+                />
+              </label>
+            </div>
+
+            <button
+              className="PostButton"
+              onClick={(e) => {
+                handlePost(whatsYourPost, uploadNewImage);
+
+                setWhatsYourPost("");
+                setUploadNewImage("");
+                inputRef.current.value = "";
+              }}
+              disabled={whatsYourPost === ""}
+            >
+              Post
+            </button>
+          </div>
         </form>
-
-        <div className="PostbtnOnHome">
-          <button
-            className="PostButton"
-            // style={{ backgroundColor: trendingPost ? "#07a0c3" : "#c0f0fa" }}
-
-            onClick={() => {
-              handlePost(whatsYourPost);
-              // array.push({whatsYourPost})
-              setWhatsYourPost("");
-            }}
-            disabled={whatsYourPost === ""}
-          >
-            Post
-          </button>
-        </div>
       </div>
 
       <div className="sorting">
@@ -209,3 +271,39 @@ export const Home = () => {
     </>
   );
 };
+
+{
+  /* <div>
+
+<label htmlFor="uploadNewImagesOnYourPost">
+  <input
+    id="uploadNewImagesOnYourPost"
+    type="file"
+    accept="image/*"
+    className="uploadNewImageforPost"
+    ref={inputRef}
+    onChange={(e) => {
+      setUploadNewImage(URL?.createObjectURL(e.target.files[0]));
+    }}
+    style={{ opacity: 1, width: "50px" }}
+  />
+</label>
+
+<span className="postImages">
+  <RiImageAddLine className="addImagesOnNewPost" />
+</span>
+<button
+  className="PostButton"
+  onClick={(e) => {
+    handlePost(whatsYourPost, uploadNewImage);
+
+    setWhatsYourPost("");
+    setUploadNewImage("");
+    inputRef.current.value = "";
+  }}
+  disabled={whatsYourPost === "" || uploadNewImage === ""}
+>
+  Post
+</button>
+</div> */
+}

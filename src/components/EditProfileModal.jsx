@@ -150,12 +150,6 @@ export const EditProfileModal = ({ setEditUserProfileModal }) => {
                 <div className="chooseProfileAvatar">
                   <IoMdCamera className="uploadProfilePic" />{" "}
                 </div>
-
-                {/* <img
-                  src="https://res.cloudinary.com/dmqqgsxrr/image/upload/v1695045786/photo-camera_vywktn.png"
-                  alt="addImage"
-                  className="cameraicon"
-                /> */}
               </label>
             </div>
             <div

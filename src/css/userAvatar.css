@@ -3,6 +3,8 @@
   height: 140px;
   width: 140px;
   border-radius: 80px;
+  object-position: top;
+  object-fit: cover;
   /* bottom: 280px; */
   /* left: 450px; */
   /* margin-left: 180%; */
@@ -13,6 +15,8 @@
   width: 80px;
   border-radius: 50%;
   position: absolute;
+  object-position: top;
+  object-fit: cover;
 }
 
 .profileAvatarOptions {
