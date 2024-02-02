@@ -39,7 +39,7 @@ export const SideBar = () => {
           </div>
 
           <ul className="sidebarLinks">
-            <Link to="/" className="Link">
+            <Link to="/home" className="Link">
               {/* <HomeIcon /> */}
               <div className="logo">
                 <div>
