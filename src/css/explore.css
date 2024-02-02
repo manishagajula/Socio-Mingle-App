@@ -1,5 +1,7 @@
 .postsContainer {
-  width: 100%;
+  /* width: 100%;
+  margin-left: 200px;
+  margin-bottom: 200px; */
 }
 
 .container {
@@ -7,18 +9,51 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
-  margin: 5px 0px;
-  width: 100%;
-  text-align: center;
+
+  /* margin: 5px 0px;
+  width: 100%; */
+
+  /* text-align: center; */
 }
 
 .postCardWrapper {
-  border: 1px solid #ccc;
-  width: 100%;
+  /* border: 1px solid black; */
+  /* border-bottom: 1px solid black; */
+  /* border-top-right-radius: 2px;
+  border-top-left-radius: 2px; */
+  /* width: 60%;
+  margin: 0; */
+
+  /* align-items: center; */
 }
 
 .flex {
-  width: 50;
-  height: 50;
-  overflow: scroll;
+  /* width: 50;
+  height: 50; */
+
+  /* overflow: scroll; */
+}
+.exploreHeader {
+  margin: 0px;
+  font-size: 1.5rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.explorepageouterdiv {
+  /* border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black; */
+}
+
+@media (max-width: 390px) {
+  .exploreHeader {
+    /* padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 2.8rem; */
+  }
 }

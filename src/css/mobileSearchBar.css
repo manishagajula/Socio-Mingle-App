@@ -1,0 +1,129 @@
+.searchbarForMobile:focus {
+  width: 310px;
+  height: 20px;
+  color: black;
+  outline: none;
+}
+
+.searchLogoMobile {
+  right: 40px;
+  top: 30px;
+}
+
+.searchbarForMobile {
+  width: 310px;
+  height: 20px;
+  border: 0;
+  background-color: rgb(254, 250, 250);
+}
+
+::placeholder {
+  color: grey;
+  font-weight: 700px;
+  opacity: 1;
+  font-size: 1rem;
+}
+
+/* *:focus {
+  outline: none;
+} */
+
+.searchcenterMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(254, 250, 250);
+  /* position: sticky;
+  top: 0; */
+}
+
+.searchItemMobile {
+  position: relative;
+  /* top: 0; */
+}
+/* 
+.searchList { */
+.searchListNameForMobile {
+  /* height: 200px; */
+  height: auto;
+  width: 330px;
+  background-color: #c0f0fa;
+  z-index: 1;
+  list-style: none;
+  position: fixed;
+  margin-left: 21px;
+  margin-right: 20px;
+  padding: 0px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 0px;
+}
+/* } */
+
+.searchNameMobile {
+  /* padding-bottom: 5px; */
+  /* padding-top: 10px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.searchNameAvatarMobile {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.searchUserNameMobile {
+  padding-left: 41px;
+}
+
+/* .searchListName {
+  display: flex;
+  flex-direction: column;
+} */
+
+.searchUsersMobile {
+  margin-top: -40px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.searchUserFirstName {
+  margin-left: 40px;
+}
+
+@media (max-width: 390px) {
+  .searchItemMobile {
+    right: 19rem;
+  }
+  .searchcenterMobile {
+    position: relative;
+    left: 30rem;
+    margin-left: 0px;
+    margin-right: 0px;
+    top: 20px;
+  }
+  .searchListNameForMobile {
+    margin-left: -120px;
+    width: 100px;
+  }
+  .searchbarForMobile {
+    padding-bottom: 5px;
+    padding-left: 5px;
+  }
+  .searchLogoMobile {
+    position: relative;
+    top: 4px;
+    left: -10px;
+  }
+}

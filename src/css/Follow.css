@@ -1,13 +1,25 @@
 .followContainer {
   border: 1px solid #ccc;
+  /* display: flex;
+  justify-content: space-between;
+  flex-direction: column; */
+  padding: 10px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  /* background-color: #bbe5ef; */
+  /* background-color: #c0f0fa; */
+  background-color: rgb(243 244 246);
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  border: hidden;
+  box-shadow: 10px 10px 18px 2px #ccc;
 }
 
 .followUserContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 0px;
-  gap: 2rem;
+  width: 330px;
+  padding: 0;
 }
 
 .name,
@@ -15,6 +27,127 @@
   margin: 0.7rem;
 }
 
+.name {
+  font-weight: 500;
+  margin: 0;
+  /* margin-top: -10px; */
+}
+
+.username {
+  color: grey;
+  font-weight: 500;
+  margin: 0;
+  /* margin-top: -10px; */
+}
+
 .followBtn {
-  align-self: flex-end;
+  /* background-color: #5bc3eb; */
+  /* background-color: #07a0c3;
+  border-radius: 20px;
+  color: white;
+  border: hidden;
+  padding: 4px;
+  border: hidden;
+  padding-right: 5px; */
+}
+/* .followBtn.hover {
+  background-color: #c0f0fa;
+  color: black;
+  border-radius: 20px;
+  border: hidden;
+  padding: 4px;
+  border: hidden;
+  padding-right: 5px;
+} */
+
+.followBtns {
+  padding: 10px;
+  border-radius: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: none;
+  background-color: #07a0c3;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 550;
+}
+.followBtns:hover {
+  background-color: #c0f0fa;
+  color: black;
+  padding: 10px;
+  border-radius: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: none;
+}
+
+/* .followBtns {
+  background-color: #07a0c3;
+  border-radius: 20px;
+  color: white;
+  border: hidden;
+  padding: 4px;
+  border: hidden;
+  padding-right: 5px;
+}
+.followBtns.hover {
+  background-color: #c0f0fa;
+  border-radius: 20px;
+  color: black;
+  border: hidden;
+  padding: 4px;
+  border: hidden;
+  padding-right: 5px;
+} */
+
+.followHeader {
+  text-align: left;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.followUser {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+}
+
+.followName {
+  display: flex;
+}
+
+.followAvatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  /* margin: 0.7rem; */
+  /* padding-top: 10px; */
+}
+
+.followSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.follownames {
+  /* margin-left: -15px; */
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 390px) {
+  .followContainer {
+    display: none;
+  }
 }

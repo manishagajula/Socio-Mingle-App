@@ -1,35 +1,99 @@
-.flex {
+/* .innerFrame {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+.flex {
+  /* display: flex;
+  justify-content: center;
+  align-items: flex-start; */
+
   /* gap: 1px 1px; */
-  column-gap: 1px;
+
+  /* column-gap: 1px;
   position: fixed;
   height: 100%;
   width: 100%;
-  gap: 2rem;
-  /* z-index: 1; */
-  top: 0;
-  background-color: white;
-  padding-top: 20px;
-}
+  gap: 2rem; */
 
+  /* z-index: 1; */
+
+  /* top: 0;
+  background-color: white;
+  padding-top: 60px; */
+}
+/* 
 .sideBar {
   position: sticky;
   top: 0;
   left: 0;
   width: 20%;
-}
+} */
 
-.link {
+/* .link {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
   color: white;
   display: block;
   background-color: black;
+} */
+
+/* .link:hover {
+  color: whitesmoke;
+} */
+/* style={{ display: "flex" }} */
+
+/* .pages {
+  display: flex;
+} */
+
+.pages {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-.link:hover {
-  color: whitesmoke;
+.asideBar {
+  position: sticky;
+  top: 0;
+  padding-right: 80px;
 }
+
+.App,
+#root {
+  display: inline-block;
+  width: 100vw;
+}
+
+.pages {
+  /* width: 100%;
+  height: 100%; */
+  /* display: grid; */
+  /* padding:4rem; */
+  /* gap: 1rem;
+  grid-template-columns: repeat(1, 1fr); */
+}
+
+.asidebarstyle {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  width: 100vw;
+}
+
+@media (max-width: 768px) {
+  .sidebar,
+  .asideBar {
+    display: none;
+  }
+}
+
+/* main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  } */

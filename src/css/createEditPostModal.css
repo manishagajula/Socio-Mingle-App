@@ -1,0 +1,114 @@
+.modalOuterWrapperOnEditButton {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0px;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 1;
+}
+
+.modalInnerWrapperOnEditButton {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  height: auto;
+  background-color: rgb(243 244 246);
+  /* background-color: #c0f0fa; */
+  border-radius: 10px;
+}
+
+.inputareaOnEditButton {
+  height: 96px;
+  width: 79%;
+  margin-left: 70px;
+  margin-top: -50px;
+  border: none;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  /* background-color: #c0f0fa; */
+}
+
+.imageEditModal {
+  height: 380px;
+  width: 77%;
+  margin-top: -10px;
+  margin-left: 70px;
+  margin-right: 10px;
+  /* margin-top: 10px; */
+  /* border-radius: 20px; */
+  margin-bottom: 10px;
+  background-color: white;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  /* border: 1px solid black; */
+}
+
+.newPostimageavatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 20px;
+  /* margin-right: 20px; */
+}
+
+.cancelbtnonEditPostModal {
+  background-color: #c0f0fa;
+  border-radius: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  margin-right: 70px;
+  /* color: white; */
+}
+
+.cancelbtnonEditPostModal:hover {
+  background-color: #07a0c3;
+  color: white;
+}
+
+.savebuttononEditPostModal {
+  background-color: #c0f0fa;
+  border-radius: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  margin-left: 300px;
+
+  /* color: white; */
+}
+
+.savebuttononEditPostModal:hover {
+  background-color: #07a0c3;
+  color: white;
+}
+
+.buttonsOnEditPostModal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.editPostModalEdit {
+  margin-right: -60px;
+}
+
+.textareaAndImage {
+  position: relative;
+}
+
+.closeIcons {
+  position: absolute;
+  right: 38.3rem;
+  top: 52px;
+}

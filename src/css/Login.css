@@ -1,39 +1,262 @@
-.login_btn {
-  margin: auto;
-  padding: 1px auto;
+.loginpage_btn {
+  /* margin: auto; */
+  /* padding: 1px auto; */
   border-radius: 10px;
-  display: center;
-  width: 22rem;
   color: white;
   font-weight: bold;
-  background-color: #00acee;
+  background-color: #07a0c3;
+  border: none;
+  padding: 0;
+  width: 270px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+  font-size: 1rem;
 }
 
-input {
+.loginasguest_btn {
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: #07a0c3;
+  font-size: 1rem;
+  border: none;
+  width: 270px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+
+/* input {
   padding: 0.5rem 1rem;
   width: 20rem;
-}
+} */
 
-form {
+.formOfLogin {
+  /* display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding-top: 40px; */
+  /* padding-left: 30px; */
+  /* padding-right: 30px; */
+  /* margin-top: -20px; */
+  padding-top: 90px;
+  /* margin-left: 395px; */
+  /* background-color: #c0f0fa; */
+  border-radius: 10px;
+  /* padding-right: 0;  */
+  width: 300px;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   padding: 15px;
+  /* height: 457px; */
+  height: 300px;
+  margin-right: 24px;
+  margin-top: -33px;
+
+  /* margin-left: 200px;
+  margin-right: 200px; */
+}
+
+.formDataLogin {
+  display: flex;
+  flex-direction: column;
 }
 
 .login_page {
-  margin: 20px auto;
-  padding: 1.5rem 5rem;
+  /* margin: 20px auto; */
+  /* padding: 1.5rem 5rem; */
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   font-family: "Poppins", sans-serif;
+  background-color: #07a0c3;
 }
 
-.title {
+.logintitle {
+  /* margin-bottom: 90px; */
+  /* margin-left: 400px;
+  margin-top: -100px;
+  margin-bottom: 70px; */
+  text-align: center;
+  /* padding-top: 10px; */
+  /* margin-top: 26px; */
+  /* padding-left: 70%; */
+  /* margin-top: 79px; */
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 15.5px;
+}
+
+.outertitleofLogin {
+  padding-top: 54px;
+}
+
+.subtitle {
+  /* margin-left: 400px;
+  margin-top: -40px;
+  margin-bottom: 60px; */
+  text-align: center;
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
-::placeholder {
+/* .forgotToSignup {
+
+} */
+
+/* ::placeholder {
   color: #00acee;
+} */
+
+.loginImage {
+  /* height: 812.8px; */
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.loginPageImageandInfo {
+  /* display: flex;
+  align-items: center;
+  justify-content: flex-start; */
+  /* margin-top: 100px;
+  margin-bottom: 113px; */
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #c0f0fa; */
+  /* background-color: #07a0c3; */
+}
+
+.loginFormData {
+  /* background-color: #07a0c3; */
+  /* background-color: #c0f0fa; */
+  background-color: rgb(243 244 246);
+  height: 600px;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 318px; */
+  gap: 40px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px 2px #ccc;
+}
+
+.login_input {
+  width: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-left: 12px;
+
+  border-radius: 10px;
+  border: none;
+  border: 1px solid #07a0c3;
+}
+
+.labelEmail {
+  position: relative;
+}
+
+.forgotToSignup {
+  font-size: 1rem;
+  margin-right: 0;
+  padding-left: 19px;
+  margin-left: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-top: -15px;
+}
+
+.labelPassword {
+  position: relative;
+}
+
+.showPassword {
+  position: absolute;
+  left: 14.9rem;
+  top: 0.7rem;
+}
+
+.termsofLogin {
+  margin-left: 82px;
+  margin-top: 120px;
+  /* margin-top: 20px; */
+  margin-bottom: 0px;
+}
+
+/* .forgotPassword {
+  margin-left: 45px;
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+.upperforgottopass {
+  padding-bottom: 80px;
+} */
+
+.forgotPassword {
+  margin-top: 106px;
+  margin-left: 35px;
+}
+
+.appLogo {
+  padding-right: 10px;
+}
+
+@media (max-width: 390px) {
+  .loginFormData {
+    width: 90%;
+    padding-right: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  .loginImage {
+    display: none;
+  }
+}
+
+@media (min-width: 390px) {
+  .login_page {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 390px) {
+  .loginPageImageandInfo {
+    height: 100vh;
+    width: 100vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .formDataLogin {
+    padding-right: 10px;
+  }
+  .loginFormData {
+    /* margin-left: 0px;
+    margin-bottom: 0px; */
+    margin: 0px;
+  }
+  .showPassword {
+    position: absolute;
+    top: 0.7rem;
+    left: 16rem;
+    /* left: 50rem; */
+  }
 }

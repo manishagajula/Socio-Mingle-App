@@ -8,7 +8,7 @@ export const LandingPage = () => {
 
   return (
     <div>
-      <h1>landingpage</h1>
+      {/* <h1>landingpage</h1>
       {data.map(({ content, createdAt, id, likes, updatedAt, username }) => (
         <ul key={id}>
           <p> {content}</p>
@@ -26,7 +26,7 @@ export const LandingPage = () => {
           <p>{updatedAt}</p>
           <p>{username}</p>
         </ul>
-      ))}
+      ))} */}
     </div>
   );
 };

@@ -8,12 +8,15 @@ const {
   GET_BOOKMARKS,
   BOOKMARK_POST,
   REMOVE_BOOKMARK,
+  EDIT_USER,
 } = userConstants;
 
 export const usersReducer = (state, action) => {
+  console.log(action.payload);
   switch (action.type) {
     case GET_ALL_USERS:
       return { ...state, allUsers: action.payload };
+
     case FOLLOW_USER:
     case UNFOLLOW_USER:
       return {
@@ -30,6 +33,7 @@ export const usersReducer = (state, action) => {
         ...state,
         selectedUser: action.payload,
       };
+
     case GET_BOOKMARKS:
       return { ...state, allBookmarks: action.payload };
     case BOOKMARK_POST:
@@ -42,6 +46,12 @@ export const usersReducer = (state, action) => {
       return {
         ...state,
         allBookmarks: action.payload,
+      };
+
+    case EDIT_USER:
+      return {
+        ...state,
+        selectedUser: action.payload,
       };
     default:
       return state;
