@@ -22,7 +22,7 @@ export const SideBar = () => {
       <nav className="sideBar">
         <div className="innerSideBar">
           <div className="brandLogo2">
-            <Link to="/" className="Link">
+            <Link to="/home" className="Link">
               <div className="brandLogo3">
                 <span>
                   <TbBrandHipchat className="reactIcons" />

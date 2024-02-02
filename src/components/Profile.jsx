@@ -48,7 +48,7 @@ export const Profile = () => {
 
   const handleLogoutHandler = () => {
     handleLogout();
-    navigate("/login");
+    navigate("/");
   };
 
   // const getCount = (allposts) => allposts.map((allpost) => allpost.length);

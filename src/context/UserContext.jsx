@@ -14,7 +14,7 @@ import { userConstants } from "../constants/user_constants";
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  // const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);/
   const [users, setUsers] = useReducer(usersReducer, initialUsers);
   const { token, setCurrentUser } = useContext(AuthContext);
   console.log(users);

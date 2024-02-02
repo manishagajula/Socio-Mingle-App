@@ -53,7 +53,7 @@ export const PostDetail = () => {
 
       {"_id" in singlePost && <PostCard post={getSinglePost} />}
       {/* <Like
-        LikeCount={singlePost?.likes?.likeCount}
+        LikeCount={singlePost?.likes?.likeCount}=
         likedBy={singlePost.likes.likedBy}
         postId={singlePost._id}
       /> */}

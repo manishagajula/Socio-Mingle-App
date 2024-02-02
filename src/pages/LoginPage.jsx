@@ -20,7 +20,7 @@ export const LoginPage = () => {
 
     LoginHandler(email, password);
 
-    navigate("/");
+    navigate("/home");
   };
 
   const handleEyeIcon = () => {
@@ -32,7 +32,7 @@ export const LoginPage = () => {
 
     LoginHandler("varunkapoor", "varunkapoor123");
 
-    navigate("/");
+    navigate("/home");
   };
 
   console.log({ showeyeIcon });

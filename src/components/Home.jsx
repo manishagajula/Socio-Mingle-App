@@ -120,9 +120,8 @@ export const Home = () => {
       .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     setSorted(latestPosts);
     // setActivePosts("oldest");
-    setActivePosts(() => ({
-      trending: false,
-      latest: false,
+    setActivePosts((prev) => ({
+      ...prev,
       oldest: true,
     }));
 
@@ -137,9 +136,27 @@ export const Home = () => {
   // };
 
   useEffect(() => {
-    setSorted(
-      allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    );
+    if (activePosts.latest) {
+      setSorted(
+        sorted
+          .slice()
+          .sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt))
+      );
+    } else if (activePosts.trending) {
+      setSorted(
+        sorted.slice().sort((a, b) => b?.likes?.likeCount - a?.likes?.likeCount)
+      );
+    } else if (activePosts.oldest) {
+      setSorted(
+        sorted
+          .slice()
+          .sort((a, b) => new Date(a?.createdAt) - new Date(b?.createdAt))
+      );
+    } else {
+      setSorted(
+        allPosts.sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt))
+      );
+    }
   }, [allPosts]);
 
   console.log({ uploadNewImage, sorted });

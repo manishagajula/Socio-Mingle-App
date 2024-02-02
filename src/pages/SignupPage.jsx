@@ -172,7 +172,7 @@ export const SignupPage = () => {
                   Already have an account?{" "}
                   <strong
                     onClick={() => {
-                      navigate("/login");
+                      navigate("/");
                     }}
                     style={{
                       marginBottom: "15px",

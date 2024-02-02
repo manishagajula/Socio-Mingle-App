@@ -21,7 +21,7 @@ export const MobileNavbar = () => {
   return (
     <div style={{ width: "100%" }}>
       <ul className="navWrapper">
-        <Link to="/">
+        <Link to="/home">
           <li>
             <BiHomeAlt2 className="sidebarIcons" />
           </li>
